@@ -6,7 +6,7 @@ import { BrowserRouter as Router } from 'react-router-dom'
 
 const Root = () =>
   <Provider store={store}>
-    <Router>
+    <Router basename={process.env.PUBLIC_URL}>
       <App/>
     </Router>
   </Provider>;
