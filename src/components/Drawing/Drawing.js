@@ -1,16 +1,15 @@
 import React, { Component } from 'react';
 import { Link } from 'react-router-dom';
 
-class EditionImage extends Component {
+class Drawing extends Component {
   render() {
     return (
       <div>
-        edition
-        <br/>
+        coloringgg <br/>
         <Link to="/">Back</Link>
       </div>
     );
   }
 }
 
-export default EditionImage;
+export default Drawing;

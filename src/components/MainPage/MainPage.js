@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
-import Header from './MainPage/Header';
-import Links from './MainPage/Links';
+import Header from './Header';
+import Links from './Links';
 
 class MainPage extends Component {
   render() {

@@ -1,15 +1,16 @@
 import React, { Component } from 'react';
 import { Link } from 'react-router-dom';
 
-class Coloring extends Component {
+class ChangeParameters extends Component {
   render() {
     return (
       <div>
-        coloringgg <br/>
+        edition
+        <br/>
         <Link to="/">Back</Link>
       </div>
     );
   }
 }
 
-export default Coloring;
+export default ChangeParameters;

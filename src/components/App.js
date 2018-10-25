@@ -3,9 +3,10 @@ import {connect} from 'react-redux';
 import {withRouter, Route} from 'react-router-dom'
 
 import {contactsFetched} from '../actions/index';
-import MainPage from './MainPage';
-import Coloring from './Coloring';
-import EditionImage from './EditionImage';
+import MainPage from './MainPage/MainPage';
+import ChangeParameters from './ChangeParameters/ChangeParameters';
+import Filters from './Filters/Filters';
+import Drawing from './Drawing/Drawing';
 
 
 class App extends Component {
@@ -13,8 +14,9 @@ class App extends Component {
     return (
       <div>
         <Route path="/" exact strict component={MainPage}/>
-        <Route path="/Coloring" component={Coloring}/>
-        <Route path="/EditionImage" component={EditionImage}/>
+        <Route path="/ChangeParameters" component={ChangeParameters}/>
+        <Route path="/Filters" component={Filters}/>
+        <Route path="/Drawing" component={Drawing}/>
       </div>
     );
   }

@@ -6,16 +6,21 @@ import './Links.css';
 class Links extends Component {
   render() {
     return (
-      <div>
+      <div class="d-flex justify-content-around">
         <Row>
           <Col>
-            <Link to="/EditionImage">
-              <button className="button1">Edition Image</button>
+            <Link to="/ChangeParameters">
+              <button className="button1">Change Parameters</button>
             </Link>
           </Col>
           <Col>
-            <Link to="/Coloring">
-              <button className="button2">Coloring</button>
+            <Link to="/Filters">
+              <button className="button2">Filters</button>
+            </Link>
+          </Col>
+          <Col>
+            <Link to="/Drawing">
+              <button className="button3">Drawing</button>
             </Link>
           </Col>
         </Row>
