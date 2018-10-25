@@ -1,10 +1,12 @@
-import React, { Component } from 'react';
-import { connect } from 'react-redux';
-import { contactsFetched } from '../actions/index';
-import { withRouter, Route } from 'react-router-dom'
+import React, {Component} from 'react';
+import {connect} from 'react-redux';
+import {withRouter, Route} from 'react-router-dom'
+
+import {contactsFetched} from '../actions/index';
 import MainPage from './MainPage';
 import Coloring from './Coloring';
 import EditionImage from './EditionImage';
+
 
 class App extends Component {
   render() {
@@ -18,13 +20,11 @@ class App extends Component {
   }
 }
 
-
 const mapStateToProps = (state) => {
   return {
-    contacts: state.contacts // (1)
+    contacts: state.contacts
   }
 };
-const mapDispatchToProps = {contactsFetched}; // (2)
+const mapDispatchToProps = {contactsFetched};
 
-export default withRouter(connect(mapStateToProps, mapDispatchToProps)(App)); // (3
-
+export default withRouter(connect(mapStateToProps, mapDispatchToProps)(App));
