@@ -4,6 +4,7 @@
   width: 350px;
   background-color: #672a96;
   border: solid 2px #622991;
+  border-radius: 10px;
   text-align: center;
   font-size: xx-large;
   color: #fafef0;
@@ -24,6 +25,7 @@
   width: 350px;
   background-color: #f9a811;
   border: solid 2px #f4a411;
+  border-radius: 10px;
   text-align: center;
   font-size: xx-large;
   color: #fafef0;

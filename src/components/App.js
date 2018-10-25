@@ -1,15 +1,19 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
 import { contactsFetched } from '../actions/index';
-import { withRouter, Route, Link } from 'react-router-dom'
+import { withRouter, Route } from 'react-router-dom'
 import MainPage from './MainPage';
-import './App.css';
+import Coloring from './Coloring';
+import EditionImage from './EditionImage';
 
 class App extends Component {
   render() {
     return (
       <div>
-        <Route path="/" exact strict component={MainPage}/><Link to="/">Back</Link></div>
+        <Route path="/" exact strict component={MainPage}/>
+        <Route path="/Coloring" component={Coloring}/>
+        <Route path="/EditionImage" component={EditionImage}/>
+      </div>
     );
   }
 }
