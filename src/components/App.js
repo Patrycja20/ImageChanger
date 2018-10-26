@@ -1,12 +1,12 @@
 import React, {Component} from 'react';
 import {connect} from 'react-redux';
 import {withRouter, Route} from 'react-router-dom'
-
 import {contactsFetched} from '../actions/index';
+
 import MainPage from './MainPage/MainPage';
-import ChangeParameters from './ChangeParameters/ChangeParameters';
 import Filters from './Filters/Filters';
 import Drawing from './Drawing/Drawing';
+import ChangeParameters from './ChangeParameters/ChangeParameters';
 
 
 class App extends Component {

@@ -1,0 +1,12 @@
+div.Title1 {
+    background-color: #672a96;
+    height: 75px;
+    text-align: center;
+    padding-top: 15px;
+    box-shadow: 0 1px 14px 0 rgba(103, 42, 150, 0.5);
+}
+
+h2 {
+    font-size: xx-large;
+    color: #fafef0;
+}
