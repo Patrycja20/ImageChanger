@@ -1,7 +1,7 @@
 import React, {Component} from 'react';
-import {Link} from 'react-router-dom';
 import {Row, Col} from 'reactstrap';
 import Header from './Header';
+import Parameters from './Parameters';
 import ChooseImage from './ChooseImage';
 
 class ChangeParameters extends Component {
@@ -9,14 +9,16 @@ class ChangeParameters extends Component {
     return (
       <div>
         <Header/>
+        <div class="d-flex justify-content-around">
           <Row>
+            <Col>
+              <Parameters/>
+            </Col>
             <Col>
               <ChooseImage/>
             </Col>
           </Row>
-        <Row>
-          <Link to="/">Back</Link>
-        </Row>
+        </div>
       </div>
     );
   }

@@ -34,15 +34,15 @@ class ChooseImage extends Component {
     if (imageViewUrl) {
       $imageView = (<Canvas name={imageViewUrl} />);
     } else {
-      $imageView = (<div className="previewText">Please select an Image</div>);
+      $imageView = (<div>Please select an Image<br/><canvas width={1910} height={1080}/></div>);
     }
 
     return (
-      <div className="previewComponent">
+      <div>
         <form onSubmit={(e) => this._handleSubmit(e)}>
-          <input className="fileInput" type="file" onChange={(e) => this._handleImageChange(e)} />
+          <input className="fileInput" type="file" onChange={(e) => this._handleImageChange(e)} /> Preferowane maks. (1920 x 1080)
         </form>
-        <div className="imgPreview">
+        <div className="imgView">
           {$imageView}
         </div>
       </div>

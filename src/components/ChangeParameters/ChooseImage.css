@@ -1,16 +1,19 @@
-.Choose {
-    width: 80px;
-    height: 50px;
-    background-color: #060b57;
-    border-radius: 4px;
-    border: solid 2px #060b5f;
-    color: #fafef0;
-}
-
 form {
-    padding: 30px;
+    padding-top: 30px;
+    padding-bottom: 30px;
+
 }
 
-input {
-    color: #375365;
+.fileInput {
+    color: #471d69;
+    font-family: "Leelawadee", Arial, sans-serif;
+}
+
+.imgView {
+    overflow-y: scroll;
+    overflow-x: scroll;
+    max-height: 450px;
+    max-width: 900px;
+
+    box-shadow: 0 0 10px 2px rgba(0, 0, 0, 0.75);
 }
