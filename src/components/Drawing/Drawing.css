@@ -1,0 +1,49 @@
+.navbar-coloring {
+    position: relative;
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    justify-content: space-between;
+    background-color: #423a9e;
+
+    box-shadow: 0 1px 14px 0 rgba(66, 58, 158, 0.5);
+}
+
+.right-vertical-bar {
+    border-right: black solid 1px;
+}
+
+.raquo-delimeter {
+    font-size: 1.25rem;
+    padding-right: 2rem;
+    border-right: 1px solid #79b37a;
+    text-decoration: none;
+    color: white;
+}
+
+.raquo-delimeter:hover {
+    color: rgba(0, 0, 0, .9);
+    text-decoration: none;
+    color: #e6e6e6;
+}
+
+.navbar-brand {
+    padding-left: 20px;
+    color: white;
+}
+
+.navbar-coloring-buttons {
+    padding: .5rem 1rem;
+
+}
+
+.navbar-coloring-brand {
+    padding: .5rem 1rem;
+    background: rgb(110, 219, 49);
+
+}
+
+.noHover:hover {
+    text-decoration: none;
+}
+
