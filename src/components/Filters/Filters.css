@@ -1,9 +1,9 @@
-div.Title1 {
-    background-color: #672a96;
+div.Title2 {
+    background-color: #f9a811;
     height: 57px;
     padding-top: 15px;
 
-    box-shadow: 0 1px 14px 0 rgba(103, 42, 150, 0.5);
+    box-shadow: 0 1px 14px 0 rgba(249, 168, 17, 0.5);
 }
 
 h2 {
@@ -11,16 +11,16 @@ h2 {
     font-size: 1.25rem;
 }
 
-.Back1 {
+.Back2 {
     padding-right: 30px;
     margin-right: 60px;
     color: #fafef0;
     text-decoration: none;
-    border-right: 1px solid #a744f7;
+    border-right: 1px solid #e59a0f;
     height: 65px;
 }
 
-.Back1:hover {
-    color: #cbb3fe;
+.Back2:hover {
+    color: #ffe2b1;
     text-decoration: none;
 }

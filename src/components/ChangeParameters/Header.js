@@ -9,7 +9,7 @@ class Header extends Component {
       <div className="Title1">
         <Col>
           <h2>
-            <Link className="Back" to="/">&lt;</Link>
+            <Link className="Back1" to="/">&lt;</Link>
             Change Parameters
           </h2>
         </Col>
