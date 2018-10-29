@@ -2,7 +2,7 @@ import React, { Component } from 'react';
 import { connect } from 'react-redux';
 import h from './drawingHelpers';
 import './DrawingCanvas.css';
-import { saveComplete } from '../../actions';
+import { setCanvasReference } from '../../actions';
 
 export class DrawingCanvas extends Component {
   state = {
@@ -31,13 +31,20 @@ export class DrawingCanvas extends Component {
 
   componentDidMount() {
     const canvas = this.refs.canvas;
-    console.log('canvas', canvas);
-    this.ctx = canvas.getContext('2d');
+    this.props.setCanvasReference(canvas);
 
+    this.ctx = canvas.getContext('2d');
     this.ctx.lineWidth = this.props.drawing.paintSize;
+    this.ctx.strokeStyle = this.props.drawing.color;
     this.ctx.lineJoin = 'round';
     this.ctx.lineCap = 'round';
-    this.ctx.strokeStyle = this.props.drawing.color;
+  }
+
+  componentDidUpdate() {
+    const { paintSize, color } = this.props.drawing;
+
+    this.ctx.lineWidth = paintSize;
+    this.ctx.strokeStyle = color;
   }
 
   mouseDown = (e) => {
@@ -69,12 +76,6 @@ export class DrawingCanvas extends Component {
     const { width, height } = this.state;
     const { drawMode, paintSize, color, saving } = this.props.drawing;
 
-    if (saving) {
-      let data = this.refs.canvas.toDataURL('image/jpeg');
-      this.props.saveComplete();
-      window.open(data, '_blank');
-    }
-
     return (
       <div className="row container-fluid ">
         <div className="col canvas-container" ref='container'>
@@ -101,7 +102,7 @@ function mapStateToProps(state) {
 
 function mapDispatchToProps(dispatch) {
   return {
-    saveComplete: () => dispatch(saveComplete()),
+    setCanvasReference: (ref) => dispatch(setCanvasReference(ref)),
   };
 }
 

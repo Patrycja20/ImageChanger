@@ -2,8 +2,7 @@ import {
   SET_DRAW_MODE,
   SET_PAINT_SIZE,
   SET_COLOR,
-  SAVE_AS_JPG,
-  SAVE_COMPLETE,
+  SET_CANVAS_REF,
 } from '../reducers/drawingReducer';
 
 export const contactsFetched = (contacts) => ({
@@ -33,14 +32,9 @@ export function setColor(color) {
   };
 }
 
-export function saveAsJpg() {
+export function setCanvasReference(reference) {
   return {
-    type: SAVE_AS_JPG,
-  };
-}
-
-export function saveComplete() {
-  return {
-    type: SAVE_COMPLETE,
+    type: SET_CANVAS_REF,
+    reference: reference,
   };
 }

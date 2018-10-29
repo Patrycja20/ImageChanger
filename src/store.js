@@ -7,7 +7,7 @@ const initialState = {
     drawMode: DRAW,
     paintSize: 10,
     color: '#6edb31',
-    saving: false,
+    canvasRef: null,
   },
 };
 
