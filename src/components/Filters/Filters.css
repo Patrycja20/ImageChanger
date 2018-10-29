@@ -1,4 +1,4 @@
-div.Title2 {
+.Filters {
     background-color: #f9a811;
     height: 57px;
     padding-top: 15px;
@@ -6,12 +6,12 @@ div.Title2 {
     box-shadow: 0 1px 14px 0 rgba(249, 168, 17, 0.5);
 }
 
-h2 {
+.Filters h2 {
     color: #fafef0;
     font-size: 1.25rem;
 }
 
-.Back2 {
+.Filters .Back {
     padding-right: 30px;
     margin-right: 60px;
     color: #fafef0;
@@ -20,7 +20,11 @@ h2 {
     height: 65px;
 }
 
-.Back2:hover {
+.Filters .Back:hover {
     color: #ffe2b1;
     text-decoration: none;
+}
+.Filters .form-control-file {
+    color: #fafef0;
+    padding-right: 30px;
 }

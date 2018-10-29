@@ -4,7 +4,7 @@ import './HeaderFooter.css';
 class Header extends Component {
   render() {
     return (
-      <div className="Title">
+      <div className="HeaderFooter">
         <h1>Image Changer</h1>
       </div>
     );

@@ -1,15 +1,15 @@
-form {
+.ChooseImage form {
     padding-top: 30px;
     padding-bottom: 30px;
 
 }
 
-.fileInput {
+.ChooseImage .fileInput {
     color: #471d69;
     font-family: "Leelawadee", Arial, sans-serif;
 }
 
-.imgView {
+.ChooseImage .imgView {
     overflow-y: scroll;
     overflow-x: scroll;
     max-height: 450px;

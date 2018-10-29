@@ -6,7 +6,7 @@ import './Links.css';
 class Links extends Component {
   render() {
     return (
-      <div class="d-flex justify-content-around">
+      <div class="Links d-flex justify-content-around">
         <Row>
           <Col>
             <Link to="/ChangeParameters">

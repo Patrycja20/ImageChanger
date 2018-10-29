@@ -1,4 +1,4 @@
-.button1 {
+.Links .button1 {
   position: relative;
   height: 350px;
   width: 350px;
@@ -13,12 +13,12 @@
   padding: 70px;
 }
 
-.button1:hover {
+.Links .button1:hover {
   background-color: #855abe;
   border: solid 2px #775abe;
 }
 
-.button2 {
+.Links .button2 {
   position: relative;
   height: 350px;
   width: 350px;
@@ -33,12 +33,12 @@
   padding: 75px;
 }
 
-.button2:hover {
+.Links .button2:hover {
   background-color: #ffc152;
   border: solid 2px #fabd50;
 }
 
-.button3 {
+.Links .button3 {
   position: relative;
   height: 350px;
   width: 350px;
@@ -53,7 +53,7 @@
   padding: 75px;
 }
 
-.button3:hover {
+.Links .button3:hover {
   background-color: #acf980;
   border: solid 2px #a6f37a;
 }

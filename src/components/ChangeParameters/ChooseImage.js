@@ -25,7 +25,7 @@ class ChooseImage extends Component {
       });
     }
 
-    reader.readAsDataURL(file)
+    reader.readAsDataURL(file);
   }
 
   render() {
@@ -38,7 +38,7 @@ class ChooseImage extends Component {
     }
 
     return (
-      <div>
+      <div className="ChooseImage">
         <form onSubmit={(e) => this._handleSubmit(e)}>
           <input className="fileInput" type="file" onChange={(e) => this._handleImageChange(e)} /> Preferowane maks. (1920 x 1080)
         </form>

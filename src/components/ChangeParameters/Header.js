@@ -6,10 +6,10 @@ import './Header.css';
 class Header extends Component {
   render() {
     return (
-      <div className="Title1">
+      <div className="Header">
         <Col>
           <h2>
-            <Link className="Back1" to="/">&lt;</Link>
+            <Link className="Back" to="/">&lt;</Link>
             Change Parameters
           </h2>
         </Col>

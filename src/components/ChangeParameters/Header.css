@@ -1,4 +1,4 @@
-div.Title1 {
+.Header {
     background-color: #672a96;
     height: 57px;
     padding-top: 15px;
@@ -6,12 +6,12 @@ div.Title1 {
     box-shadow: 0 1px 14px 0 rgba(103, 42, 150, 0.5);
 }
 
-h2 {
+.Header h2 {
     color: #fafef0;
     font-size: 1.25rem;
 }
 
-.Back1 {
+.Header .Back {
     padding-right: 30px;
     margin-right: 60px;
     color: #fafef0;
@@ -20,7 +20,7 @@ h2 {
     height: 65px;
 }
 
-.Back1:hover {
+.Header .Back:hover {
     color: #cbb3fe;
     text-decoration: none;
 }
