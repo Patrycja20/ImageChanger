@@ -11,12 +11,6 @@ library.add(faPencilAlt);
 library.add(faMinus);
 
 export class DrawingButtons extends Component {
-  state = {
-    drawMode: DRAW,
-    paintSize: 10,
-    color: '#6edb31',
-  };
-
   changeDrawMode = (mode) => {
     this.props.setDrawMode(mode);
   };
