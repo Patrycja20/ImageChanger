@@ -1,7 +1,55 @@
 .Images {
-  text-align: center;
+    text-align: center;
+    color: #fe9333;
+    font-family: "Leelawadee", Arial, sans-serif;
+    font-size: x-large;
 }
-.Images img {
-  width: 100%;
-  padding:20px;
+
+.Images .Frame {
+    width: 100%;
+    padding: 20px;
+}
+
+.Images .Frame:hover {
+    box-shadow: 0 1px 14px 0 rgba(229, 102, 4, 0.7);
+}
+
+.Winter {
+    filter: brightness(2.2) grayscale(0.6);
+    -webkit-filter: brightness(2.2) grayscale(0.6);
+}
+
+.CoffeeWithMilk {
+    filter: brightness(1.1) contrast(2.1) sepia(1);
+    -webkit-filter: brightness(1.1) contrast(2.1) sepia(1);
+}
+
+.Summer {
+    filter: brightness(2.2) grayscale(0.6) saturate(5.5);
+    -webkit-filter: brightness(2.2) grayscale(0.6) saturate(5.5);
+}
+
+.Tea {
+    filter: contrast(0.8) sepia(1);
+    -webkit-filter: contrast(0.8) sepia(1);
+}
+
+.BlackWhite {
+    filter: grayscale(1);
+    -webkit-filter: grayscale(1);
+}
+
+.DirtyWindow {
+    filter: blur(2px) brightness(1.5);
+    -webkit-filter: blur(1px) brightness(1.5);
+}
+
+.Fairyland {
+    filter: contrast(1.2) saturate(3.1);
+    -webkit-filter: contrast(1) saturate(2.9);
+}
+
+.ViceVersa {
+    filter: brightness(1.8) grayscale(0.2) hue-rotate(180deg) invert(0.9) sepia(0.4);
+    -webkit-filter: brightness(1.8) grayscale(0.2) hue-rotate(180deg) invert(0.9) sepia(0.4);
 }
