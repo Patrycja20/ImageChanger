@@ -3,35 +3,37 @@ import { library } from '@fortawesome/fontawesome-svg-core'
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import { faPencilAlt, faMinus, } from '@fortawesome/free-solid-svg-icons'
 import './DrawingButtons.css'
+import { DRAW, LINE, RECTANGLE } from '../../reducers/drawingReducer';
+import { connect } from 'react-redux';
+import { setColor, setDrawMode, setPaintSize } from '../../actions/index';
 
 library.add(faPencilAlt);
 library.add(faMinus);
 
-export const DRAW = 'draw';
-export const LINE = 'line';
-export const RECTANGLE = 'rectangle';
-
-export default class DrawingButtons extends Component {
-  state = {
-    drawMode: DRAW,
-    paintSize: 10,
-    color: '#6edb31',
-  };
-
+export class DrawingButtons extends Component {
   changeDrawMode = (mode) => {
-    this.setState({ drawMode: mode })
+    this.props.setDrawMode(mode);
   };
 
   changePaintSize = (e) => {
-    this.setState({ paintSize: e.target.value })
+    this.props.setPaintSize(e.target.value);
   };
 
   changeColor = (e) => {
-    this.setState({ color: e.target.value })
+    this.props.setColor(e.target.value);
+  };
+
+  saveAsJpg = () => {
+    const canvas = this.props.drawing.canvasRef;
+
+    if (canvas !== null) {
+      let data = canvas.toDataURL('image/jpeg');
+      window.open(data, '_blank');
+    }
   };
 
   render() {
-    const { drawMode, paintSize, color } = this.state;
+    const { drawMode, paintSize, color } = this.props.drawing;
 
     return (
       <div className='navbar-coloring-buttons'>
@@ -82,7 +84,7 @@ export default class DrawingButtons extends Component {
           </li>
 
           <li className='nav-item button-save'>
-            <button type="button" className="btn btn-secondary">Save as *.jpg</button>
+            <button type="button" className="btn btn-secondary" onClick={this.saveAsJpg}>Save as *.jpg</button>
           </li>
 
         </ul>
@@ -90,3 +92,19 @@ export default class DrawingButtons extends Component {
     );
   }
 }
+
+function mapStateToProps(state) {
+  return {
+    drawing: state.drawing,
+  };
+}
+
+function mapDispatchToProps(dispatch) {
+  return {
+    setDrawMode: (drawMode) => dispatch(setDrawMode(drawMode)),
+    setPaintSize: (paintSize) => dispatch(setPaintSize(paintSize)),
+    setColor: (color) => dispatch(setColor(color)),
+  };
+}
+
+export default connect(mapStateToProps, mapDispatchToProps)(DrawingButtons);
