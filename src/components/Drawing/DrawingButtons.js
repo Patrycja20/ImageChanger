@@ -5,7 +5,7 @@ import { faPencilAlt, faMinus, } from '@fortawesome/free-solid-svg-icons'
 import './DrawingButtons.css'
 import { DRAW, LINE, RECTANGLE } from '../../reducers/drawingReducer';
 import { connect } from 'react-redux';
-import { setColor, setDrawMode, setPaintSize } from '../../actions/index';
+import { saveAsJpg, setColor, setDrawMode, setPaintSize } from '../../actions/index';
 
 library.add(faPencilAlt);
 library.add(faMinus);
@@ -75,7 +75,7 @@ export class DrawingButtons extends Component {
           </li>
 
           <li className='nav-item button-save'>
-            <button type="button" className="btn btn-secondary">Save as *.jpg</button>
+            <button type="button" className="btn btn-secondary" onClick={this.props.saveAsJpg}>Save as *.jpg</button>
           </li>
 
         </ul>
@@ -95,7 +95,8 @@ function mapDispatchToProps(dispatch) {
     setDrawMode: (drawMode) => dispatch(setDrawMode(drawMode)),
     setPaintSize: (paintSize) => dispatch(setPaintSize(paintSize)),
     setColor: (color) => dispatch(setColor(color)),
-  };
+    saveAsJpg: () => dispatch(saveAsJpg()),
+};
 }
 
 export default connect(mapStateToProps, mapDispatchToProps)(DrawingButtons);

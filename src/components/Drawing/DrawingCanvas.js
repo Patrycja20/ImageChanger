@@ -2,6 +2,7 @@ import React, { Component } from 'react';
 import { connect } from 'react-redux';
 import h from './drawingHelpers';
 import './DrawingCanvas.css';
+import { saveComplete } from '../../actions';
 
 export class DrawingCanvas extends Component {
   state = {
@@ -66,7 +67,13 @@ export class DrawingCanvas extends Component {
 
   render() {
     const { width, height } = this.state;
-    const { drawMode, paintSize, color } = this.props.drawing;
+    const { drawMode, paintSize, color, saving } = this.props.drawing;
+
+    if (saving) {
+      let data = this.refs.canvas.toDataURL('image/jpeg');
+      this.props.saveComplete();
+      window.open(data, '_blank');
+    }
 
     return (
       <div className="row container-fluid ">
@@ -92,8 +99,10 @@ function mapStateToProps(state) {
   };
 }
 
-function mapDispatchToProps() {
-  return {};
+function mapDispatchToProps(dispatch) {
+  return {
+    saveComplete: () => dispatch(saveComplete()),
+  };
 }
 
 export default connect(mapStateToProps, mapDispatchToProps)(DrawingCanvas);
