@@ -1,6 +1,6 @@
-import React, { Component } from 'react';
-import { Link } from 'react-router-dom';
-import { Col } from 'reactstrap';
+import React, {Component} from 'react';
+import {Link} from 'react-router-dom';
+import {Row} from 'reactstrap';
 import Images from './Images';
 import './Filters.css';
 
@@ -33,29 +33,29 @@ class Filters extends Component {
   _handleSubmit(e) {
     e.preventDefault();
   }
+
   render() {
-    let { imageViewUrl } = this.state;
+    let {imageViewUrl} = this.state;
     let $imageView = null;
     if (imageViewUrl) {
       $imageView = (<Images imageSRC={imageViewUrl}/>);
     } else {
-      $imageView = (<div>Please select an Image</div>);
+      $imageView = (<div className="Info">Please select an Image</div>);
     }
 
     return <div>
       <div className="Filters">
-        <Col>
+        <Row>
           <h2>
             <Link className="Back" to="/">&lt;</Link>
             Filters
-            <form onSubmit={(e) => this._handleSubmit(e)}>
-              <input type="file" className="form-control-file" onChange={(e) => this._handleCreateImages(e)}/>
-            </form>
           </h2>
-        </Col>
+            <form className="Form" onSubmit={(e) => this._handleSubmit(e)}>
+              <input type="file" onChange={(e) => this._handleCreateImages(e)}/>
+            </form>
+        </Row>
       </div>
       <div>
-        Krzysiek jest fajny!
         {$imageView}
       </div>
     </div>

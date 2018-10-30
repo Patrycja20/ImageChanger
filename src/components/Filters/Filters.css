@@ -9,6 +9,14 @@
 .Filters h2 {
     color: #fafef0;
     font-size: 1.25rem;
+    margin-left: 35px;
+    margin-right: 35px;
+}
+
+.Filters .Form {
+    position: relative;
+    color: #fafef0;
+    font-size: 1rem;
 }
 
 .Filters .Back {
@@ -24,6 +32,7 @@
     color: #ffe2b1;
     text-decoration: none;
 }
+
 .Filters .form-control-file {
     color: #fafef0;
     padding-right: 30px;
