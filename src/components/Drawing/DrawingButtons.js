@@ -1,14 +1,31 @@
 import React, { Component } from 'react';
+import { connect } from 'react-redux';
+
 import { library } from '@fortawesome/fontawesome-svg-core'
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
-import { faPencilAlt, faMinus, } from '@fortawesome/free-solid-svg-icons'
+import {
+  faPencilAlt,
+  faMinus,
+  faCircle,
+  faSquare,
+  faCaretUp,
+  faVectorSquare,
+  faSquareFull
+} from '@fortawesome/free-solid-svg-icons'
+
+import { CIRCLE, DRAW, LINE, RECTANGLE, TRIANGLE } from '../../reducers/drawingReducer';
+import { changeFillMode, setColor, setDrawMode, setPaintSize } from '../../actions/index';
+import helpers from './drawingHelpers';
 import './DrawingButtons.css'
-import { DRAW, LINE, RECTANGLE } from '../../reducers/drawingReducer';
-import { connect } from 'react-redux';
-import { setColor, setDrawMode, setPaintSize } from '../../actions/index';
 
 library.add(faPencilAlt);
 library.add(faMinus);
+library.add(faCircle);
+library.add(faSquare);
+library.add(faCaretUp);
+library.add(faVectorSquare);
+library.add(faSquareFull);
+
 
 export class DrawingButtons extends Component {
   changeDrawMode = (mode) => {
@@ -23,17 +40,16 @@ export class DrawingButtons extends Component {
     this.props.setColor(e.target.value);
   };
 
-  saveAsJpg = () => {
-    const canvas = this.props.drawing.canvasRef;
+  changeFillMode = () => {
+    this.props.changeFillMode();
+  };
 
-    if (canvas !== null) {
-      let data = canvas.toDataURL('image/jpeg');
-      window.open(data, '_blank');
-    }
+  saveAsJpg = () => {
+    helpers.canvasDownloadPopup(this.props.drawing.canvasRef);
   };
 
   render() {
-    const { drawMode, paintSize, color } = this.props.drawing;
+    const { drawMode, paintSize, color, isFill } = this.props.drawing;
 
     return (
       <div className='navbar-coloring-buttons'>
@@ -46,6 +62,7 @@ export class DrawingButtons extends Component {
               min="1"
               max="50"
               value={paintSize} onChange={this.changePaintSize}
+              title='Choose color'
             />
             <span className="badge badge-secondary paint-size-val">{paintSize}px</span>
           </li>
@@ -56,10 +73,26 @@ export class DrawingButtons extends Component {
 
           <li className="nav-item">
             <button
+              className={`btn btn-secondary`}
+              type="button"
+              onClick={this.changeFillMode}
+              title='Fill or stroke mode'
+            >
+              {
+                isFill
+                  ? (<FontAwesomeIcon icon="square-full"/>)
+                  : (<FontAwesomeIcon icon="vector-square"/>)
+              }
+            </button>
+          </li>
+
+          <li className="nav-item">
+            <button
               data-mode={DRAW}
               className={`btn btn-secondary button-mode ${drawMode === DRAW && 'selected'}`}
               type="button"
               onClick={() => this.changeDrawMode(DRAW)}
+              title='Draw'
             >
               <FontAwesomeIcon icon="pencil-alt"/>
             </button>
@@ -69,6 +102,7 @@ export class DrawingButtons extends Component {
               className={`btn btn-secondary button-mode ${drawMode === LINE && 'selected'}`}
               type="button"
               onClick={() => this.changeDrawMode(LINE)}
+              title='Draw line'
             >
               <FontAwesomeIcon icon="minus"/>
             </button>
@@ -78,8 +112,29 @@ export class DrawingButtons extends Component {
               className={`btn btn-secondary button-mode button-square ${drawMode === RECTANGLE && 'selected'}`}
               type="button"
               onClick={() => this.changeDrawMode(RECTANGLE)}
+              title='Draw rectangle'
             >
-              <span> &#9634;</span>
+              <FontAwesomeIcon icon="square"/>
+            </button>
+
+            <button
+              data-mode={RECTANGLE}
+              className={`btn btn-secondary button-mode button-square ${drawMode === CIRCLE && 'selected'}`}
+              type="button"
+              onClick={() => this.changeDrawMode(CIRCLE)}
+              title='Draw circle'
+            >
+              <FontAwesomeIcon icon="circle"/>
+            </button>
+
+            <button
+              data-mode={RECTANGLE}
+              className={`btn btn-secondary button-mode button-square ${drawMode === TRIANGLE && 'selected'}`}
+              type="button"
+              onClick={() => this.changeDrawMode(TRIANGLE)}
+              title='Draw triangle'
+            >
+              <FontAwesomeIcon className='triangle-icon' icon="caret-up"/>
             </button>
           </li>
 
@@ -104,6 +159,7 @@ function mapDispatchToProps(dispatch) {
     setDrawMode: (drawMode) => dispatch(setDrawMode(drawMode)),
     setPaintSize: (paintSize) => dispatch(setPaintSize(paintSize)),
     setColor: (color) => dispatch(setColor(color)),
+    changeFillMode: () => dispatch(changeFillMode()),
   };
 }
 

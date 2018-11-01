@@ -8,6 +8,7 @@ const initialState = {
     paintSize: 10,
     color: '#6edb31',
     canvasRef: null,
+    isFill: false,
   },
 };
 

@@ -2,7 +2,7 @@ import {
   SET_DRAW_MODE,
   SET_PAINT_SIZE,
   SET_COLOR,
-  SET_CANVAS_REF,
+  SET_CANVAS_REF, CHANGE_FILL_MODE,
 } from '../reducers/drawingReducer';
 
 export const contactsFetched = (contacts) => ({
@@ -38,3 +38,11 @@ export function setCanvasReference(reference) {
     reference: reference,
   };
 }
+
+
+export function changeFillMode() {
+  return {
+    type: CHANGE_FILL_MODE,
+  };
+}
+

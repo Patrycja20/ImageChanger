@@ -62,3 +62,10 @@
 .button-save {
     margin-left: 20px;
 }
+
+.triangle-icon {
+    transform: rotate(-135deg) scale(2);
+    position: relative;
+    top: 4px;
+    right: 4px;
+}

@@ -1,20 +1,25 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
-import h from './drawingHelpers';
+import helpers from './drawingHelpers';
 import './DrawingCanvas.css';
 import { setCanvasReference } from '../../actions';
+import { DRAW, LINE, RECTANGLE, CIRCLE, TRIANGLE } from '../../reducers/drawingReducer';
 
 export class DrawingCanvas extends Component {
+
+  canvas = null;
+  canvasTemp = null;
+  ctx = null;
+  ctxTemp = null;
+
   state = {
-    width: 400, // rozmiar canvasa
-    height: 300, // rozmiar canvasa
+    canvasSize: { width: 400, height: 300, },
     mouseDown: false,
-    startX: 0, // pozycja startowa kursora
-    startY: 0,
+    startPosition: { x: 0, y: 0 }, // pozycja startowa kursora
   };
 
-  paddings = {
-    width: 75 * 2, // paddingi od krawędzi ekranu
+  paddings = { // paddingi od krawędzi ekranu
+    width: 75 * 2,
     height: 190,
   };
 
@@ -24,20 +29,24 @@ export class DrawingCanvas extends Component {
 
   updateWindowDimensions = () => {
     this.setState({
-      width: (window.innerWidth < 400 + this.paddings.width) ? (400) : (window.innerWidth - this.paddings.width),
-      height: (window.innerHeight < 300 + this.paddings.height) ? (300) : (window.innerHeight - this.paddings.height),
+      canvasSize: helpers.calcCanvasSize(window, this.paddings),
     });
   };
 
   componentDidMount() {
-    const canvas = this.refs.canvas;
-    this.props.setCanvasReference(canvas);
+    this.canvas = this.refs.canvas;
+    this.canvasTemp = this.refs.canvasTemp;
+    this.props.setCanvasReference(this.canvas);
 
-    this.ctx = canvas.getContext('2d');
-    this.ctx.lineWidth = this.props.drawing.paintSize;
-    this.ctx.strokeStyle = this.props.drawing.color;
-    this.ctx.lineJoin = 'round';
-    this.ctx.lineCap = 'round';
+    this.ctx = this.canvas.getContext('2d');
+    this.ctxTemp = this.canvasTemp.getContext('2d');
+
+    this.ctx.fillStyle = 'white';
+    this.ctx.fillRect(0, 0, this.refs.canvas.width, this.refs.canvas.height);
+
+    const { paintSize, color } = this.props.drawing;
+    helpers.setDefaultContextValues(this.ctx, paintSize, color);
+    helpers.setDefaultContextValues(this.ctxTemp, paintSize, color);
   }
 
   componentDidUpdate() {
@@ -45,43 +54,76 @@ export class DrawingCanvas extends Component {
 
     this.ctx.lineWidth = paintSize;
     this.ctx.strokeStyle = color;
+    this.ctx.fillStyle = color;
+
+    this.ctxTemp.lineWidth = paintSize;
+    this.ctxTemp.strokeStyle = color;
+    this.ctxTemp.fillStyle = color;
   }
 
   mouseDown = (e) => {
-    const mousePosition = h.getRealCoords(this.refs.canvas, e);
+    const mousePosition = helpers.getRealCoords(this.refs.canvas, e);
 
     this.setState({
       mouseDown: true,
-      startX: mousePosition.x,
-      startY: mousePosition.y,
+      startPosition: mousePosition,
     });
 
+    this.ctx.moveTo(mousePosition.x, mousePosition.y);
     this.ctx.beginPath();
-    this.ctx.moveTo(this.startX, this.startY);
   };
 
   mouseMove = (e) => {
-    if (!this.state.mouseDown) return;
+    if (this.state.mouseDown === false) return;
 
-    const mousePosition = h.getRealCoords(this.refs.canvas, e);
-    this.ctx.lineTo(mousePosition.x, mousePosition.y);
-    this.ctx.stroke();
+    const { drawMode, isFill } = this.props.drawing;
+    const mousePosition = helpers.getRealCoords(this.refs.canvas, e);
+    const startPosition = this.state.startPosition;
+
+    this.ctxTemp.clearRect(0, 0, this.refs.canvasTemp.width, this.refs.canvasTemp.height);
+
+    switch (drawMode) {
+      case DRAW:
+        return helpers.draw(this.ctx, mousePosition);
+      case LINE:
+        return helpers.drawLine(this.ctxTemp, startPosition, mousePosition);
+      case RECTANGLE:
+        return helpers.drawRectangle(this.ctxTemp, startPosition, mousePosition, isFill);
+      case CIRCLE:
+        return helpers.drawCircle(this.ctxTemp, startPosition, mousePosition, isFill);
+      case TRIANGLE:
+        return helpers.drawTriangle(this.ctxTemp, startPosition, mousePosition, isFill);
+    }
   };
 
   mouseUp = () => {
     this.setState({ mouseDown: false });
+
+    const { drawMode } = this.props.drawing;
+
+    if ([LINE, RECTANGLE, CIRCLE, TRIANGLE].includes(drawMode)) {
+      this.ctx.drawImage(this.canvasTemp, 0, 0);
+      this.ctxTemp.clearRect(0, 0, this.canvasTemp.width, this.canvasTemp.height);
+    }
   };
 
   render() {
-    const { width, height } = this.state;
-    const { drawMode, paintSize, color, saving } = this.props.drawing;
+    const { width, height } = this.state.canvasSize;
 
     return (
-      <div className="row container-fluid ">
+      <div className="DrawingCanvas row container-fluid ">
         <div className="col canvas-container" ref='container'>
           <canvas
             ref="canvas"
             className='canvas-border'
+            width={width}
+            height={height}
+            onMouseDown={this.mouseDown}
+            onMouseMove={this.mouseMove}
+            onMouseUp={this.mouseUp}
+          />
+          <canvas
+            ref="canvasTemp"
             width={width}
             height={height}
             onMouseDown={this.mouseDown}

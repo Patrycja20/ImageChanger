@@ -4,6 +4,12 @@ import DrawingCanvas from './DrawingCanvas';
 import DrawingButtons from './DrawingButtons';
 import './Drawing.css';
 
+import { library } from '@fortawesome/fontawesome-svg-core'
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
+import { faAngleLeft, } from '@fortawesome/free-solid-svg-icons'
+
+library.add(faAngleLeft);
+
 class Drawing extends Component {
   render() {
     return (
@@ -11,7 +17,7 @@ class Drawing extends Component {
         <nav className="navbar-coloring navbar-expand-sm">
           <div className='navbar-coloring-brand'>
             <Link to='/' className='noHover'>
-              <span className="raquo-delimeter"> &lsaquo;</span>
+              <span className="raquo-delimeter"><FontAwesomeIcon icon="angle-left"/></span>
               <span className="navbar-brand">Drawing</span>
             </Link>
           </div>

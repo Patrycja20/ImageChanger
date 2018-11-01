@@ -14,10 +14,11 @@
 
 .raquo-delimeter {
     font-size: 1.25rem;
-    padding-right: 2rem;
-    border-right: 1px solid #79b37a;
+    padding-left: 15px;
+    padding-right: 30px;
+    border-right: 1px solid #65c931;
     text-decoration: none;
-    color: white;
+    color: rgba(255, 255, 255, 0.5);
 }
 
 .raquo-delimeter:hover {
@@ -45,4 +46,3 @@
 .noHover:hover {
     text-decoration: none;
 }
-
