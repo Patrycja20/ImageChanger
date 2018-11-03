@@ -5,6 +5,9 @@
 
     box-shadow: 0 1px 14px 0 rgba(249, 168, 17, 0.5);
 }
+.ContentFilters {
+    padding-top: 30px;
+}
 
 .Filters h2 {
     color: #fafef0;
@@ -42,4 +45,8 @@
 
 .Filters .form-control-file {
     color: #fafef0;
+}
+
+.FilterView {
+
 }

@@ -9,6 +9,7 @@ class Canvas extends Component {
     let img = this.refs.image;
 
     img.onload = () => {
+      ctx.clearRect(0, 0, 1910, 1080);
       ctx.drawImage(img, 0, 0);
     }
   }

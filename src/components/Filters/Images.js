@@ -15,65 +15,68 @@ class Images extends Component {
   render() {
     let {imageURL} = this.props.filters;
     const FiltersArray =
-      ['Frame', 'Winter Frame', 'CoffeeWithMilk Frame', 'Summer Frame', 'Tea Frame', 'BlackWhite Frame', 'DirtyWindow Frame', 'Fairyland Frame', 'ViceVersa Frame'];
+      ['Frame', 'Winter Frame', 'CoffeeWithMilk Frame', 'Spring Frame', 'Tea Frame', 'BlackWhite Frame', 'DirtyWindow Frame', 'Fairyland Frame', 'ViceVersa Frame'];
 
     return <div className="Images">
       <Row>
-        <Col>Original</Col>
-        <Col>Winter</Col>
-        <Col>Coffee with milk</Col>
+        <Col className="FilterImage">Original
+          <Link to="/Filters/View">
+            <img onClick={() => this.changeSelectedFilter(FiltersArray[0])}
+                 className={FiltersArray[0]} src={imageURL}/>
+          </Link>
+        </Col>
+        <Col className="FilterImage">Winter
+          <Link to="/Filters/View">
+            <img onClick={() => this.changeSelectedFilter(FiltersArray[1])}
+                 className={FiltersArray[1]} src={imageURL}/>
+          </Link>
+        </Col>
+        <Col className="FilterImage">Coffee with milk
+          <Link to="/Filters/View">
+            <img onClick={() => this.changeSelectedFilter(FiltersArray[2])}
+                 className={FiltersArray[2]} src={imageURL}/>
+          </Link>
+        </Col>
       </Row>
       <Row>
-        <Col><Link to="/Filters/View">
-          <img onClick={() => this.changeSelectedFilter(FiltersArray[0])}
-               className={FiltersArray[0]} src={imageURL}/>
-        </Link></Col>
-        <Col><Link to="/Filters/View">
-          <img onClick={() => this.changeSelectedFilter(FiltersArray[1])}
-               className={FiltersArray[1]} src={imageURL}/>
-        </Link></Col>
-        <Col><Link to="/Filters/View">
-          <img onClick={() => this.changeSelectedFilter(FiltersArray[2])}
-               className={FiltersArray[2]} src={imageURL}/>
-        </Link></Col>
+        <Col className="FilterImage">Spring
+          <Link to="/Filters/View">
+            <img onClick={() => this.changeSelectedFilter(FiltersArray[3])}
+                 className={FiltersArray[3]} src={imageURL}/>
+          </Link>
+        </Col>
+        <Col className="FilterImage">Tea
+          <Link to="/Filters/View">
+            <img onClick={() => this.changeSelectedFilter(FiltersArray[4])}
+                 className={FiltersArray[4]} src={imageURL}/>
+          </Link>
+        </Col>
+        <Col className="FilterImage">Black & White
+          <Link to="/Filters/View">
+            <img onClick={() => this.changeSelectedFilter(FiltersArray[5])}
+                 className={FiltersArray[5]} src={imageURL}/>
+          </Link>
+        </Col>
       </Row>
       <Row>
-        <Col>Summer</Col>
-        <Col>Tea</Col>
-        <Col>Black & White</Col>
-      </Row>
-      <Row>
-        <Col><Link to="/Filters/View">
-          <img onClick={() => this.changeSelectedFilter(FiltersArray[3])}
-               className={FiltersArray[3]} src={imageURL}/>
-        </Link></Col>
-        <Col><Link to="/Filters/View">
-          <img onClick={() => this.changeSelectedFilter(FiltersArray[4])}
-               className={FiltersArray[4]} src={imageURL}/>
-        </Link></Col>
-        <Col><Link to="/Filters/View">
-          <img onClick={() => this.changeSelectedFilter(FiltersArray[5])}
-               className={FiltersArray[5]} src={imageURL}/>
-        </Link></Col>
-      </Row>
-      <Row>
-        <Col>Dirty window</Col>
-        <Col>Fairyland</Col>
-        <Col>Vice versa</Col>
-      </Row>
-      <Row>
-        <Col><Link to="/Filters/View">
-          <img onClick={() => this.changeSelectedFilter(FiltersArray[6])}
-               className={FiltersArray[6]} src={imageURL}/>
-        </Link></Col>
-        <Col><Link to="/Filters/View">
-          <img onClick={() => this.changeSelectedFilter(FiltersArray[7])}
-               className={FiltersArray[7]} src={imageURL}/>
-        </Link></Col>
-        <Col><Link to="/Filters/View">
-          <img onClick={() => this.changeSelectedFilter(FiltersArray[8])}
-               className={FiltersArray[8]} src={imageURL}/>
-        </Link></Col>
+        <Col className="FilterImage">Dirty window
+          <Link to="/Filters/View">
+            <img onClick={() => this.changeSelectedFilter(FiltersArray[6])}
+                 className={FiltersArray[6]} src={imageURL}/>
+          </Link>
+        </Col>
+        <Col className="FilterImage">Fairyland
+          <Link to="/Filters/View">
+            <img onClick={() => this.changeSelectedFilter(FiltersArray[7])}
+                 className={FiltersArray[7]} src={imageURL}/>
+          </Link>
+        </Col>
+        <Col className="FilterImage">Vice versa
+          <Link to="/Filters/View">
+            <img onClick={() => this.changeSelectedFilter(FiltersArray[8])}
+                 className={FiltersArray[8]} src={imageURL}/>
+          </Link>
+        </Col>
       </Row>
     </div>
   }

@@ -5,42 +5,44 @@
     font-size: x-large;
 }
 
+.Images .FilterImage {
+    padding-top: 18px;
+}
+
+.Images .FilterImage:hover {
+    padding-top: 20px;
+    box-shadow: 0 1px 14px 0;
+    color: #d87c2d;
+    text-decoration: #d87c2d overline double ;
+}
+
 .Images .Frame {
     width: 100%;
     padding: 20px;
 }
 
-.Images .Frame:hover {
-    box-shadow: 0 1px 14px 0;
-}
-
 .Photo .Frame {
     padding: 50px;
-    box-shadow: 0 0px 0px 0;
-}
-
-.Photo .Frame:hover {
-    box-shadow: 0 0px 0px 0;
 }
 
 .Winter {
-    filter: brightness(2.2) grayscale(0.6);
-    -webkit-filter: brightness(2.2) grayscale(0.6);
+    filter: brightness(0.7) grayscale(0.4) hue-rotate(200deg);
+    -webkit-filter: brightness(0.7) grayscale(0.4) hue-rotate(200deg);
 }
 
 .CoffeeWithMilk {
-    filter: brightness(1.1) contrast(2.1) sepia(1);
-    -webkit-filter: brightness(1.1) contrast(2.1) sepia(1);
+    filter: brightness(1.1) contrast(2.1) sepia(0.9);
+    -webkit-filter: brightness(1.1) contrast(2.1) sepia(0.9);
 }
 
-.Summer {
-    filter: brightness(2.2) grayscale(0.6) saturate(5.5);
-    -webkit-filter: brightness(2.2) grayscale(0.6) saturate(5.5);
+.Spring {
+    filter: brightness(1) hue-rotate(60deg);
+    -webkit-filter: brightness(1) hue-rotate(60deg);
 }
 
 .Tea {
-    filter: contrast(0.8) sepia(1);
-    -webkit-filter: contrast(0.8) sepia(1);
+    filter: contrast(0.8) sepia(0.8);
+    -webkit-filter: contrast(0.8) sepia(0.8);
 }
 
 .BlackWhite {
@@ -54,8 +56,8 @@
 }
 
 .Fairyland {
-    filter: contrast(1.2) saturate(3.1);
-    -webkit-filter: contrast(1) saturate(2.9);
+    filter: contrast(1.9) saturate(1.5);
+    -webkit-filter: contrast(1.9) saturate(1.5);
 }
 
 .ViceVersa {

@@ -42,6 +42,7 @@ class Filters extends Component {
 
     return <div>
       <div className="Filters">
+        <div className="HeaderFilters">
         <Row>
           <h2>
             <Link className="Back" to="/">&lt;</Link>
@@ -51,8 +52,9 @@ class Filters extends Component {
             <input type="file" onChange={(e) => this._handleImageChange(e)}/>
           </form>
         </Row>
+        </div>
       </div>
-      <div>
+      <div className="ContentFilters">
         {imageView}
       </div>
     </div>
