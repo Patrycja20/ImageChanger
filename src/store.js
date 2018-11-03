@@ -10,6 +10,10 @@ const initialState = {
     canvasRef: null,
     isFill: false,
   },
+  filters: {
+    selectedFilter: null,
+    imageURL: null,
+  }
 };
 
 export const store = createStore(reducers, initialState);

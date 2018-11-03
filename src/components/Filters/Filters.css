@@ -19,6 +19,13 @@
     font-size: 1rem;
 }
 
+.Filters .Info {
+    text-align: center;
+    color: #fe9333;
+    font-family: "Leelawadee", Arial, sans-serif;
+    font-size: x-large;
+}
+
 .Filters .Back {
     padding-right: 30px;
     margin-right: 60px;
@@ -35,5 +42,4 @@
 
 .Filters .form-control-file {
     color: #fafef0;
-    padding-right: 30px;
 }

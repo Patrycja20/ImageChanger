@@ -5,6 +5,11 @@ import {
   SET_CANVAS_REF, CHANGE_FILL_MODE,
 } from '../reducers/drawingReducer';
 
+import {
+  SET_IMAGE_URL,
+  SET_SELECTED_FILTER,
+} from '../reducers/filtersReducer';
+
 export const contactsFetched = (contacts) => ({
   type: 'FETCH_CONTACTS_SUCCESS',
   contacts
@@ -46,3 +51,18 @@ export function changeFillMode() {
   };
 }
 
+
+export function setImageURL(imageURL) {
+  return {
+    type: SET_IMAGE_URL,
+    imageURL: imageURL,
+  };
+}
+
+
+export function setSelectedFilter(selectedFilter) {
+  return {
+    type: SET_SELECTED_FILTER,
+    selectedFilter: selectedFilter,
+  };
+}

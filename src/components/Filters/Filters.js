@@ -1,46 +1,43 @@
 import React, {Component} from 'react';
+import {connect} from 'react-redux';
+
+import {setImageURL} from '../../actions/index';
 import {Link} from 'react-router-dom';
 import {Row} from 'reactstrap';
+
 import Images from './Images';
 import './Filters.css';
 
 
 class Filters extends Component {
-  constructor(props) {
-    super(props);
-    this.state = {
-      file: '',
-      imageViewUrl: ''
-    };
+
+  changeImageURL(e) {
+    this.props.setImageURL(e);
+  };
+
+  _handleSubmit(e) {
+    e.preventDefault();
   }
 
-  _handleCreateImages(e) {
+  _handleImageChange(e) {
     e.preventDefault();
 
     let reader = new FileReader();
     let file = e.target.files[0];
 
     reader.onloadend = () => {
-      this.setState({
-        file: file,
-        imageViewUrl: reader.result
-      });
+      this.changeImageURL(reader.result);
     }
 
     reader.readAsDataURL(file);
   }
 
-  _handleSubmit(e) {
-    e.preventDefault();
-  }
-
   render() {
-    let {imageViewUrl} = this.state;
-    let $imageView = null;
-    if (imageViewUrl) {
-      $imageView = (<Images imageSRC={imageViewUrl}/>);
+    let imageView = null;
+    if (this.props.filters.imageURL) {
+      imageView = (<Images/>);
     } else {
-      $imageView = (<div className="Info">Please select an Image</div>);
+      imageView = (<div className="Info">Please select an Image</div>);
     }
 
     return <div>
@@ -50,16 +47,28 @@ class Filters extends Component {
             <Link className="Back" to="/">&lt;</Link>
             Filters
           </h2>
-            <form className="Form" onSubmit={(e) => this._handleSubmit(e)}>
-              <input type="file" onChange={(e) => this._handleCreateImages(e)}/>
-            </form>
+          <form className="Form" onSubmit={(e) => this._handleSubmit(e)}>
+            <input type="file" onChange={(e) => this._handleImageChange(e)}/>
+          </form>
         </Row>
       </div>
       <div>
-        {$imageView}
+        {imageView}
       </div>
     </div>
   }
 }
 
-export default Filters;
+function mapStateToProps(state) {
+  return {
+    filters: state.filters,
+  };
+}
+
+function mapDispatchToProps(dispatch) {
+  return {
+    setImageURL: (imageURL) => dispatch(setImageURL(imageURL)),
+  };
+}
+
+export default connect(mapStateToProps, mapDispatchToProps)(Filters);
