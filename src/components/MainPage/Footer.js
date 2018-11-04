@@ -1,17 +1,19 @@
-import React, {Component} from 'react';
+import React, { Component } from 'react';
 import './HeaderFooter.css';
-import {Col, Row} from 'reactstrap';
+import { Col, Row } from 'reactstrap';
 
 class Footer extends Component {
   render() {
-    return <div className="Container">
-      <Row>
+    return (
+      <Row className='footer'>
         <Col>
-          The code on <a href="https://github.com/Patrycja20/ImageChanger">GitHub</a>
+          Code on <a href="https://github.com/Patrycja20/ImageChanger">GitHub</a>
         </Col>
-        <Col> &copy; Copyright Patrycja Madyda i Krzysztof Komar</Col>
+        <Col className='text-right'>
+          &copy; Patrycja Madyda & Krzysztof Komar
+        </Col>
       </Row>
-    </div>
+    );
   }
 }
 

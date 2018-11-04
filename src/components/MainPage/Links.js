@@ -6,21 +6,21 @@ import './Links.css';
 class Links extends Component {
   render() {
     return (
-      <div class="Links d-flex justify-content-around">
+      <div className="Links d-flex justify-content-around">
         <Row>
           <Col>
             <Link to="/ChangeParameters">
-              <button className="button1">Change Parameters</button>
+              <button className="changeParameters">Change Parameters</button>
             </Link>
           </Col>
           <Col>
             <Link to="/Filters">
-              <button className="button2">Filters</button>
+              <button className="filters">Filters</button>
             </Link>
           </Col>
           <Col>
             <Link to="/Drawing">
-              <button className="button3">Drawing</button>
+              <button className="drawing">Drawing</button>
             </Link>
           </Col>
         </Row>

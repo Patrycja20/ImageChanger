@@ -1,19 +1,18 @@
-div.HeaderFooter {
-    background-color: #060b57;
-    height: 200px;
-    text-align: center;
-    padding: 75px;
-    box-shadow: 0 1px 14px 0 rgba(6, 11, 67, 0.5);
+.MainPage .header {
+  background-color: #060b57;
+  height: 200px;
+  text-align: center;
+  padding: 75px;
+  box-shadow: 0 1px 14px 0 rgba(6, 11, 67, 0.5);
+  margin-bottom: 40px;
 }
 
-h1 {
-    font-size: xx-large;
-    color: #fafef0;
+.MainPage h1 {
+  font-size: xx-large;
+  color: #fafef0;
 }
 
-div.Container {
-    height: 100px;
-    text-align: center;
-    padding-top: 70px;
-    color: #1229e0;
+.MainPage .footer {
+  margin-top: 30px;
+  padding: 20px;
 }

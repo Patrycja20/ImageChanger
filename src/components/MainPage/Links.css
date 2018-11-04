@@ -1,4 +1,4 @@
-.Links .button1 {
+.Links .changeParameters {
   position: relative;
   height: 350px;
   width: 350px;
@@ -13,12 +13,12 @@
   padding: 70px;
 }
 
-.Links .button1:hover {
+.Links .changeParameters:hover {
   background-color: #855abe;
   border: solid 2px #775abe;
 }
 
-.Links .button2 {
+.Links .filters {
   position: relative;
   height: 350px;
   width: 350px;
@@ -33,12 +33,12 @@
   padding: 75px;
 }
 
-.Links .button2:hover {
+.Links .filters:hover {
   background-color: #ffc152;
   border: solid 2px #fabd50;
 }
 
-.Links .button3 {
+.Links .drawing {
   position: relative;
   height: 350px;
   width: 350px;
@@ -53,7 +53,7 @@
   padding: 75px;
 }
 
-.Links .button3:hover {
+.Links .drawing:hover {
   background-color: #acf980;
   border: solid 2px #a6f37a;
 }
