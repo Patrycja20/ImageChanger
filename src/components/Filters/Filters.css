@@ -1,25 +1,22 @@
 .Filters {
-    background-color: #f9a811;
-    height: 57px;
-    padding-top: 15px;
-
-    box-shadow: 0 1px 14px 0 rgba(249, 168, 17, 0.5);
+  background-color: #f9a811;
+  box-shadow: 0 1px 14px 0 rgba(249, 168, 17, 0.5);
+  position: relative;
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  padding: .5rem 1rem;
 }
+
 .ContentFilters {
     padding-top: 30px;
 }
 
-.Filters h2 {
-    color: #fafef0;
-    font-size: 1.25rem;
-    margin-left: 35px;
-    margin-right: 35px;
-}
-
-.Filters .Form {
+.Filters .HeaderFilters {
     position: relative;
     color: #fafef0;
     font-size: 1rem;
+    margin-left: 20px;
 }
 
 .Filters .Info {
@@ -29,13 +26,38 @@
     font-size: x-large;
 }
 
+.Filters .Brand {
+  border-right: 1px solid #e19711;
+  padding: 0 16px;
+}
+
 .Filters .Back {
-    padding-right: 30px;
-    margin-right: 60px;
+    padding-right: 20px;
     color: #fafef0;
     text-decoration: none;
-    border-right: 1px solid #e59a0f;
     height: 65px;
+}
+
+.Filters .Back .back-icon {
+  font-size: 1.25rem;
+  padding-right: 30px;
+  border-right: 1px solid #e19711;
+  text-decoration: none;
+  color: rgba(255, 255, 255, 0.5);
+}
+
+.Filters .Back .back-icon:hover {
+  text-decoration: none;
+  color: rgba(255, 255, 255, 0.8);
+}
+
+.Filters .Back .navbar-brand {
+  display: inline-block;
+  margin-right: 1rem;
+  font-size: 1.25rem;
+  line-height: inherit;
+  white-space: nowrap;
+  color: white;
 }
 
 .Filters .Back:hover {

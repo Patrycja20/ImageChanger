@@ -41,8 +41,7 @@ export class DrawingCanvas extends Component {
     this.ctx = this.canvas.getContext('2d');
     this.ctxTemp = this.canvasTemp.getContext('2d');
 
-    this.ctx.fillStyle = 'white';
-    this.ctx.fillRect(0, 0, this.refs.canvas.width, this.refs.canvas.height);
+    helpers.clearCanvas(this.canvas);
 
     const { paintSize, color } = this.props.drawing;
     helpers.setDefaultContextValues(this.ctx, paintSize, color);

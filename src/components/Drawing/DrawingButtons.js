@@ -10,7 +10,8 @@ import {
   faSquare,
   faCaretUp,
   faVectorSquare,
-  faSquareFull
+  faSquareFull,
+  faTrashAlt
 } from '@fortawesome/free-solid-svg-icons'
 
 import { CIRCLE, DRAW, LINE, RECTANGLE, TRIANGLE } from '../../reducers/drawingReducer';
@@ -25,6 +26,7 @@ library.add(faSquare);
 library.add(faCaretUp);
 library.add(faVectorSquare);
 library.add(faSquareFull);
+library.add(faTrashAlt);
 
 
 export class DrawingButtons extends Component {
@@ -42,6 +44,10 @@ export class DrawingButtons extends Component {
 
   changeFillMode = () => {
     this.props.changeFillMode();
+  };
+
+  clearCanvas = () => {
+    helpers.clearCanvas(this.props.drawing.canvasRef);
   };
 
   saveAsJpg = () => {
@@ -73,7 +79,7 @@ export class DrawingButtons extends Component {
 
           <li className="nav-item">
             <button
-              className={`btn btn-secondary`}
+              className='btn btn-secondary'
               type="button"
               onClick={this.changeFillMode}
               title='Fill or stroke mode'
@@ -83,6 +89,15 @@ export class DrawingButtons extends Component {
                   ? (<FontAwesomeIcon icon="square-full"/>)
                   : (<FontAwesomeIcon icon="vector-square"/>)
               }
+            </button>
+
+            <button
+              className='btn btn-secondary mx-2'
+              type="button"
+              onClick={this.clearCanvas}
+              title='Clear canvas'
+            >
+              <FontAwesomeIcon icon="trash-alt"/>
             </button>
           </li>
 

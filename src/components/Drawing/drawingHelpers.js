@@ -60,9 +60,9 @@ export function canvasDownloadPopup(canvas) {
   const data = canvas.toDataURL('image/jpeg');
   const image = data.replace(/^data:image\/[^;]+/, 'data:application/octet-stream');
 
-  const downloadLink = document.createElement("a");
+  const downloadLink = document.createElement('a');
   downloadLink.href = image;
-  downloadLink.download = "image.jpg";
+  downloadLink.download = 'image.jpg';
 
   document.body.appendChild(downloadLink);
   downloadLink.click();
@@ -117,7 +117,11 @@ export function drawRectangle(context, startPosition, mousePosition, isFill = fa
  * @param {boolean} isFill
  */
 export function drawCircle(context, startPosition, mousePosition, isFill = false) {
-  const r = Math.sqrt(Math.pow((mousePosition.x - startPosition.x), 2) + Math.pow((mousePosition.y - startPosition.y), 2));
+  const r = Math.sqrt(
+    Math.pow((mousePosition.x - startPosition.x), 2)
+    + Math.pow((mousePosition.y - startPosition.y), 2)
+  );
+
   context.beginPath();
   context.arc(startPosition.x, startPosition.y, r, 0, 2 * Math.PI);
   context.closePath();
@@ -151,6 +155,14 @@ export function calcCanvasSize(window, paddings) {
   };
 }
 
+export function clearCanvas(canvas) {
+  const context = canvas.getContext('2d');
+  context.clearRect(0, 0, canvas.width, canvas.height);
+
+  context.fillStyle = 'white';
+  context.fillRect(0, 0, canvas.width, canvas.height);
+}
+
 export default {
   getRealCoords,
   canvasDownloadPopup,
@@ -161,4 +173,5 @@ export default {
   drawTriangle,
   calcCanvasSize,
   setDefaultContextValues,
+  clearCanvas,
 }
