@@ -10,12 +10,20 @@ import {
   SET_SELECTED_FILTER,
 } from '../reducers/filtersReducer';
 
+import {
+  SET_BRIGHTNESS,
+  SET_CONTRAST,
+  SET_SATURATION,
+  SET_SHARPNESS,
+  SET_GREYSCALE,
+} from '../reducers/parametersReducer';
+
 export const contactsFetched = (contacts) => ({
   type: 'FETCH_CONTACTS_SUCCESS',
   contacts
 });
 
-
+/////Drawing
 export function setDrawMode(drawMode) {
   return {
     type: SET_DRAW_MODE,
@@ -52,6 +60,7 @@ export function changeFillMode() {
 }
 
 
+/////Filters
 export function setImageURL(imageURL) {
   return {
     type: SET_IMAGE_URL,
@@ -64,5 +73,46 @@ export function setSelectedFilter(selectedFilter) {
   return {
     type: SET_SELECTED_FILTER,
     selectedFilter: selectedFilter,
+  };
+}
+
+
+/////Parameters
+export function setBrightness(brightness) {
+  return {
+    type: SET_BRIGHTNESS,
+    brightness: brightness,
+  };
+}
+
+
+export function setContrast(contrast) {
+  return {
+    type: SET_CONTRAST,
+    contrast: contrast,
+  };
+}
+
+
+export function setSaturation(saturation) {
+  return {
+    type: SET_SATURATION,
+    saturation: saturation,
+  };
+}
+
+
+export function setSharpness(sharpness) {
+  return {
+    type: SET_SHARPNESS,
+    sharpness: sharpness,
+  };
+}
+
+
+export function setGreyscale(greyscale) {
+  return {
+    type: SET_GREYSCALE,
+    greyscale: greyscale,
   };
 }

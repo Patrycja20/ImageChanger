@@ -13,6 +13,13 @@ const initialState = {
   filters: {
     selectedFilter: null,
     imageURL: null,
+  },
+  parameters: {
+    brightness: 0,
+    contrast:0,
+    saturation:0,
+    sharpness: 0,
+    greyscale: 0,
   }
 };
 
