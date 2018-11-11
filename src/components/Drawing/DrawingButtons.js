@@ -58,7 +58,7 @@ export class DrawingButtons extends Component {
     const { drawMode, paintSize, color, isFill } = this.props.drawing;
 
     return (
-      <div className='navbar-coloring-buttons'>
+      <div className='DrawingButtons navbar-coloring-buttons'>
         <ul className="navbar-nav mr-auto paint-bar">
           <li className="nav-item paint-size-container">
             <input

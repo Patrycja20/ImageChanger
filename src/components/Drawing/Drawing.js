@@ -13,11 +13,11 @@ library.add(faAngleLeft);
 class Drawing extends Component {
   render() {
     return (
-      <div>
+      <div className='Drawing'>
         <nav className="navbar-coloring navbar-expand-sm">
           <div className='navbar-coloring-brand'>
             <Link to='/' className='noHover'>
-              <span className="raquo-delimeter"><FontAwesomeIcon icon="angle-left"/></span>
+              <span className="raquo-delimeter"><FontAwesomeIcon icon="angle-left" className='scale2x'/></span>
               <span className="navbar-brand">Drawing</span>
             </Link>
           </div>

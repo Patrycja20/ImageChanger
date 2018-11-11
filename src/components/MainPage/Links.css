@@ -1,7 +1,8 @@
 .Links .changeParameters {
   position: relative;
   height: 350px;
-  width: 350px;
+  width: 100%;
+  max-width: 350px;
   background-color: #672a96;
   border: solid 2px #622991;
   border-radius: 10px;
@@ -21,7 +22,8 @@
 .Links .filters {
   position: relative;
   height: 350px;
-  width: 350px;
+  width: 100%;
+  max-width: 350px;
   background-color: #f9a811;
   border: solid 2px #f4a411;
   border-radius: 10px;
@@ -41,7 +43,8 @@
 .Links .drawing {
   position: relative;
   height: 350px;
-  width: 350px;
+  width: 100%;
+  max-width: 350px;
   background-color: #84f933;
   border: solid 2px #7ff333;
   border-radius: 10px;

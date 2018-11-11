@@ -1,6 +1,7 @@
 .InputsRange {
     padding-top: 30px;
-    padding-right: 50px;
+    padding-right: 2rem;
+    padding-left: 2rem;
 }
 
 .InputsRange label {

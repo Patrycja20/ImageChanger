@@ -1,4 +1,4 @@
-.navbar-coloring {
+.Drawing .navbar-coloring {
     position: relative;
     display: flex;
     flex-wrap: wrap;
@@ -8,11 +8,11 @@
     box-shadow: 0 1px 14px 0 rgba(66, 58, 158, 0.5);
 }
 
-.right-vertical-bar {
+.Drawing .right-vertical-bar {
     border-right: black solid 1px;
 }
 
-.raquo-delimeter {
+.Drawing .raquo-delimeter {
     font-size: 1.25rem;
     padding-left: 15px;
     padding-right: 30px;
@@ -21,28 +21,27 @@
     color: rgba(255, 255, 255, 0.5);
 }
 
-.raquo-delimeter:hover {
+.Drawing .raquo-delimeter:hover {
     color: rgba(0, 0, 0, .9);
     text-decoration: none;
     color: #e6e6e6;
 }
 
-.navbar-brand {
+.Drawing .navbar-brand {
     padding-left: 20px;
     color: white;
 }
 
-.navbar-coloring-buttons {
+.Drawing .navbar-coloring-buttons {
     padding: .5rem 1rem;
-
 }
 
-.navbar-coloring-brand {
+.Drawing .navbar-coloring-brand {
     padding: .5rem 1rem;
     background: rgb(110, 219, 49);
 
 }
 
-.noHover:hover {
+.Drawing .noHover:hover {
     text-decoration: none;
 }

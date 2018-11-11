@@ -7,7 +7,9 @@ import MainPage from './MainPage/MainPage';
 import Filters from './Filters/Filters';
 import Drawing from './Drawing/Drawing';
 import ChangeParameters from './ChangeParameters/ChangeParameters';
-import View from './Filters/View/View';
+import FiltersView from './Filters/FiltersView';
+
+import './App.css';
 
 class App extends Component {
   render() {
@@ -16,8 +18,8 @@ class App extends Component {
         <Route path="/" exact strict component={MainPage}/>
         <Route path="/ChangeParameters" component={ChangeParameters}/>
         <Route path="/Filters" exact strict component={Filters}/>
+        <Route path="/Filters/View"  component={FiltersView}/>
         <Route path="/Drawing" component={Drawing}/>
-        <Route path="/Filters/View"  component={View}/>
       </div>
     );
   }

@@ -1,5 +1,5 @@
-import React, {Component} from 'react';
-import {Row, Col} from 'reactstrap';
+import React, { Component } from 'react';
+import { Row, Col, Container } from 'reactstrap';
 import Header from './Header';
 import Parameters from './Parameters';
 import ChooseImage from './ChooseImage';
@@ -9,16 +9,16 @@ class ChangeParameters extends Component {
     return (
       <div>
         <Header/>
-        <div class="d-flex justify-content-around">
+        <Container fluid>
           <Row>
-            <Col>
+            <Col md={4} xl={3}>
               <Parameters/>
             </Col>
-            <Col>
+            <Col md={8} xl={9}>
               <ChooseImage/>
             </Col>
           </Row>
-        </div>
+        </Container>
       </div>
     );
   }

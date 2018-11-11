@@ -1,22 +1,22 @@
-.Images {
+.FilterImages {
     text-align: center;
     color: #fe9333;
     font-family: "Leelawadee", Arial, sans-serif;
     font-size: x-large;
 }
 
-.Images .FilterImage {
+.FilterImages .FilterImage {
     padding-top: 18px;
 }
 
-.Images .FilterImage:hover {
+.FilterImages .FilterImage:hover {
     padding-top: 20px;
     box-shadow: 0 1px 14px 0;
     color: #d87c2d;
     text-decoration: #d87c2d overline double ;
 }
 
-.Images .Frame {
+.FilterImages .Frame {
     width: 100%;
     padding: 20px;
 }

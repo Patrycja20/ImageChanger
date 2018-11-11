@@ -4,9 +4,9 @@ import {connect} from 'react-redux';
 import {setSelectedFilter} from '../../actions';
 import {Link} from 'react-router-dom';
 import {Col, Row} from 'reactstrap';
-import './Images.css';
+import './FiltersImages.css';
 
-class Images extends Component {
+class FiltersImages extends Component {
   changeSelectedFilter(e) {
     this.props.setSelectedFilter(e);
   };
@@ -17,21 +17,24 @@ class Images extends Component {
     const FiltersArray =
       ['Frame', 'Winter Frame', 'CoffeeWithMilk Frame', 'Spring Frame', 'Tea Frame', 'BlackWhite Frame', 'DirtyWindow Frame', 'Fairyland Frame', 'ViceVersa Frame'];
 
-    return <div className="Images">
+    const names =
+      ['Original', 'Winter', 'Coffee with milk', 'Spring', 'Tea', 'Black & White', 'Dirty window', 'Fairyland', 'Vice versa'];
+
+    return <div className="FilterImages">
       <Row>
-        <Col className="FilterImage">Original
+        <Col className="FilterImage">{names[0]}
           <Link to="/Filters/View">
             <img onClick={() => this.changeSelectedFilter(FiltersArray[0])}
                  className={FiltersArray[0]} src={imageURL}/>
           </Link>
         </Col>
-        <Col className="FilterImage">Winter
+        <Col className="FilterImage">{names[1]}
           <Link to="/Filters/View">
             <img onClick={() => this.changeSelectedFilter(FiltersArray[1])}
                  className={FiltersArray[1]} src={imageURL}/>
           </Link>
         </Col>
-        <Col className="FilterImage">Coffee with milk
+        <Col className="FilterImage">{names[2]}
           <Link to="/Filters/View">
             <img onClick={() => this.changeSelectedFilter(FiltersArray[2])}
                  className={FiltersArray[2]} src={imageURL}/>
@@ -39,19 +42,19 @@ class Images extends Component {
         </Col>
       </Row>
       <Row>
-        <Col className="FilterImage">Spring
+        <Col className="FilterImage">{names[3]}
           <Link to="/Filters/View">
             <img onClick={() => this.changeSelectedFilter(FiltersArray[3])}
                  className={FiltersArray[3]} src={imageURL}/>
           </Link>
         </Col>
-        <Col className="FilterImage">Tea
+        <Col className="FilterImage">{names[4]}
           <Link to="/Filters/View">
             <img onClick={() => this.changeSelectedFilter(FiltersArray[4])}
                  className={FiltersArray[4]} src={imageURL}/>
           </Link>
         </Col>
-        <Col className="FilterImage">Black & White
+        <Col className="FilterImage">{names[5]}
           <Link to="/Filters/View">
             <img onClick={() => this.changeSelectedFilter(FiltersArray[5])}
                  className={FiltersArray[5]} src={imageURL}/>
@@ -59,19 +62,19 @@ class Images extends Component {
         </Col>
       </Row>
       <Row>
-        <Col className="FilterImage">Dirty window
+        <Col className="FilterImage">{names[6]}
           <Link to="/Filters/View">
             <img onClick={() => this.changeSelectedFilter(FiltersArray[6])}
                  className={FiltersArray[6]} src={imageURL}/>
           </Link>
         </Col>
-        <Col className="FilterImage">Fairyland
+        <Col className="FilterImage">{names[7]}
           <Link to="/Filters/View">
             <img onClick={() => this.changeSelectedFilter(FiltersArray[7])}
                  className={FiltersArray[7]} src={imageURL}/>
           </Link>
         </Col>
-        <Col className="FilterImage">Vice versa
+        <Col className="FilterImage">{names[8]}
           <Link to="/Filters/View">
             <img onClick={() => this.changeSelectedFilter(FiltersArray[8])}
                  className={FiltersArray[8]} src={imageURL}/>
@@ -94,4 +97,4 @@ function mapDispatchToProps(dispatch) {
   };
 }
 
-export default connect(mapStateToProps, mapDispatchToProps)(Images);
+export default connect(mapStateToProps, mapDispatchToProps)(FiltersImages);

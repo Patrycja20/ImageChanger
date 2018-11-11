@@ -13,7 +13,7 @@ export class DrawingCanvas extends Component {
   ctxTemp = null;
 
   state = {
-    canvasSize: { width: 400, height: 300, },
+    canvasSize: { width: 1000, height: 300, },
     mouseDown: false,
     startPosition: { x: 0, y: 0 }, // pozycja startowa kursora
   };

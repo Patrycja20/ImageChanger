@@ -1,8 +1,5 @@
 .Header {
     background-color: #672a96;
-    height: 57px;
-    padding-top: 15px;
-
     box-shadow: 0 1px 14px 0 rgba(103, 42, 150, 0.5);
 }
 
@@ -11,16 +8,37 @@
     font-size: 1.25rem;
 }
 
-.Header .Back {
-    padding-right: 30px;
-    margin-right: 60px;
-    color: #fafef0;
-    text-decoration: none;
-    border-right: 1px solid #a744f7;
-    height: 65px;
-}
-
 .Header .Back:hover {
     color: #cbb3fe;
     text-decoration: none;
+}
+
+.Header .back-icon {
+    font-size: 1.25rem;
+    padding-right: 30px;
+    border-right: 1px solid #8e37cb;
+    text-decoration: none;
+    color: rgba(255, 255, 255, 0.5);
+}
+
+.Header .Brand {
+    border-right: 1px solid #8e37cb;
+    padding-left: 16px;
+}
+
+.Header .navbar-brand {
+    padding-left: 20px;
+    color: white;
+}
+
+.Back .back-icon:hover {
+    text-decoration: none;
+    color: rgba(255, 255, 255, 0.8);
+}
+
+.Back {
+    padding-right: 20px;
+    color: #fafef0;
+    text-decoration: none;
+    height: 65px;
 }

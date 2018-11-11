@@ -4,7 +4,7 @@ import { Link } from 'react-router-dom';
 import { Row, Col, Container } from 'reactstrap';
 
 import { setImageURL } from '../../actions/index';
-import Images from './Images';
+import Images from './FiltersImages';
 import './Filters.css';
 
 import { library } from '@fortawesome/fontawesome-svg-core'
@@ -16,47 +16,34 @@ library.add(faAngleLeft);
 
 class Filters extends Component {
 
-  changeImageURL(e) {
-    this.props.setImageURL(e);
-  };
-
-  _handleSubmit(e) {
-    e.preventDefault();
-  }
-
-  _handleImageChange(e) {
+  handleImageChange = (e) => {
     e.preventDefault();
 
-    let reader = new FileReader();
-    let file = e.target.files[0];
+    const reader = new FileReader();
+    const file = e.target.files[0];
 
     reader.onloadend = () => {
-      this.changeImageURL(reader.result);
-    }
-
+      this.props.setImageURL(reader.result);
+    };
     reader.readAsDataURL(file);
-  }
+  };
 
   render() {
-    let imageView = null;
-    if (this.props.filters.imageURL) {
-      imageView = (<Images/>);
-    } else {
-      imageView = (<div className="Info">Please select an Image</div>);
-    }
+    const { imageURL } = this.props.filters;
+    const imageView = imageURL ? <Images/> : <div className="alert alert-dark">Please select an image</div>;
 
     return (
-      <div>
-        <nav className="Filters navbar-expand-sm">
+      <div className='Filters'>
+        <nav className="navbar navbar-expand-sm">
           <div className='Brand'>
             <Link className="Back" to="/">
-              <span className="back-icon"><FontAwesomeIcon icon="angle-left"/></span>
+              <span className="back-icon"><FontAwesomeIcon icon="angle-left" className='scale2x'/></span>
               <span className='navbar-brand'>Filters</span>
             </Link>
           </div>
           <div className="HeaderFilters">
-            <form onSubmit={(e) => this._handleSubmit(e)}>
-              <input type="file" onChange={(e) => this._handleImageChange(e)}/>
+            <form>
+              <input type="file" onChange={this.handleImageChange}/>
             </form>
           </div>
         </nav>
@@ -70,7 +57,7 @@ class Filters extends Component {
           </Row>
         </Container>
       </div>
-    )
+    );
   }
 }
 

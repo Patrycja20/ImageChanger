@@ -1,20 +1,20 @@
-.paint-bar .nav-item {
+.DrawingButtons .paint-bar .nav-item {
     margin-right: 20px;
 }
 
-.paint-bar .paint-size-container {
+.DrawingButtons .paint-bar .paint-size-container {
     display: flex;
     margin-left: 15px;
     margin-right: 25px;
 }
 
-.paint-bar .paint-size {
+.DrawingButtons .paint-bar .paint-size {
     cursor: pointer;
     margin-top: 10px;
     width: 150px;
 }
 
-.paint-bar .paint-size-val {
+.DrawingButtons .paint-bar .paint-size-val {
     height: 20px;
     border-radius: 3px;
     text-align: center;
@@ -23,24 +23,24 @@
     width: 38px;
 }
 
-.paint-bar .paint-color {
+.DrawingButtons .paint-bar .paint-color {
     width: 60px;
     height: 38px;
     padding: 2px;
 }
 
-.paint-bar .paint-color:focus {
+.DrawingButtons .paint-bar .paint-color:focus {
     box-shadow: none;
 }
 
-.paint-bar .button-mode {
+.DrawingButtons .paint-bar .button-mode {
     cursor: pointer;
     width: 62px;
     margin: 0 5px;
     color: #fff;
 }
 
-.paint-bar .button-square {
+.DrawingButtons .paint-bar .button-square {
     width: 62px;
     height: 100%;
     padding: 0;
@@ -48,22 +48,22 @@
     font-weight: bold;
 }
 
-.paint-bar .button-mode:focus {
+.DrawingButtons .paint-bar .button-mode:focus {
     outline: none;
 }
 
-.paint-bar .button-mode.selected {
+.DrawingButtons .paint-bar .button-mode.selected {
     border: solid 1px #6edb31;
     box-shadow: inset 0 0 0 2px #6edb31;
     transition: 0.25s ease-out;
     background-color: #214217;
 }
 
-.button-save {
+.DrawingButtons .button-save {
     margin-left: 20px;
 }
 
-.triangle-icon {
+.DrawingButtons .triangle-icon {
     transform: rotate(-135deg) scale(2);
     position: relative;
     top: 4px;
