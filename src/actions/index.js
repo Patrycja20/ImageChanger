@@ -15,7 +15,8 @@ import {
   SET_CONTRAST,
   SET_SATURATION,
   SET_SHARPNESS,
-  SET_GREYSCALE,
+  SET_NUMBER_OF_SHADES,
+  SET_BLACK_AND_WHITE,
   SET_ABLE_TO_CHANGE,
 } from '../reducers/parametersReducer';
 
@@ -111,10 +112,17 @@ export function setSharpness(sharpness) {
 }
 
 
-export function setGreyscale(greyscale) {
+export function setNumberOfShades(numberOfShades) {
   return {
-    type: SET_GREYSCALE,
-    greyscale: parseFloat(greyscale),
+    type: SET_NUMBER_OF_SHADES,
+    numberOfShades: parseFloat(numberOfShades),
+  };
+}
+
+export function setBlackAndWhite(blackAndWhite) {
+  return {
+    type: SET_BLACK_AND_WHITE,
+    blackAndWhite: blackAndWhite,
   };
 }
 

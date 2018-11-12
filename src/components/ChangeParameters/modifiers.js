@@ -50,9 +50,24 @@ export function modifySharpness(r, g, b, value) {
   return { r, g, b }
 }
 
-export function modifyGreyscale(r, g, b, value) {
-  r = truncate(r + value);
-  g = truncate(g + value);
-  b = truncate(b + value);
+export function modifynNumberOfShades(r, g, b, value) {
+  if(value === 0) return {r, g, b};
+
+  const conversionFactor = 255 / value;
+  const averageValue = (r + g + b) / 3;
+  const gray = parseInt((averageValue / conversionFactor) + 0.5) * conversionFactor;
+  r = truncate(gray);
+  g = truncate(gray);
+  b = truncate(gray);
+  return { r, g, b }
+}
+
+export function modifyBlackAndWhite(r, g, b, value) {
+  if(value === false) return {r, g, b};
+
+  const gray = (r * 0.2126 + g * 0.7152 + b * 0.0722)
+  r = truncate(gray);
+  g = truncate(gray);
+  b = truncate(gray);
   return { r, g, b }
 }

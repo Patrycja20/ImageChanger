@@ -19,7 +19,8 @@ const initialState = {
     contrast: 0,
     saturation: 1.0,
     sharpness: 0,
-    greyscale: 0,
+    numberOfShades: 0,
+    blackAndWhite: false,
     ableToChange: true,
   }
 };

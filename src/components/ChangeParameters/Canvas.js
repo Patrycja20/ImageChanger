@@ -6,7 +6,8 @@ import {
   modifyContrast,
   modifySaturation,
   modifySharpness,
-  modifyGreyscale
+  modifynNumberOfShades,
+  modifyBlackAndWhite
 } from './modifiers';
 import connect from 'react-redux/es/connect/connect';
 
@@ -34,7 +35,8 @@ class Canvas extends Component {
     iteratePixels(this.props.parameters.contrast, imgData.data, modifyContrast);
     iteratePixels(this.props.parameters.saturation, imgData.data, modifySaturation);
     iteratePixels(this.props.parameters.sharpness, imgData.data, modifySharpness);
-    iteratePixels(this.props.parameters.greyscale, imgData.data, modifyGreyscale);
+    iteratePixels(this.props.parameters.numberOfShades, imgData.data, modifynNumberOfShades);
+    iteratePixels(this.props.parameters.blackAndWhite, imgData.data, modifyBlackAndWhite);
 
     this.ctx.putImageData(imgData, 0, 0);
   }
