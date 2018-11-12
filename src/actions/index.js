@@ -16,6 +16,7 @@ import {
   SET_SATURATION,
   SET_SHARPNESS,
   SET_GREYSCALE,
+  SET_ABLE_TO_CHANGE,
 } from '../reducers/parametersReducer';
 
 export const contactsFetched = (contacts) => ({
@@ -81,7 +82,7 @@ export function setSelectedFilter(selectedFilter) {
 export function setBrightness(brightness) {
   return {
     type: SET_BRIGHTNESS,
-    brightness: brightness,
+    brightness: parseInt(brightness),
   };
 }
 
@@ -89,7 +90,7 @@ export function setBrightness(brightness) {
 export function setContrast(contrast) {
   return {
     type: SET_CONTRAST,
-    contrast: contrast,
+    contrast: parseInt(contrast),
   };
 }
 
@@ -97,7 +98,7 @@ export function setContrast(contrast) {
 export function setSaturation(saturation) {
   return {
     type: SET_SATURATION,
-    saturation: saturation,
+    saturation: parseFloat(saturation),
   };
 }
 
@@ -105,7 +106,7 @@ export function setSaturation(saturation) {
 export function setSharpness(sharpness) {
   return {
     type: SET_SHARPNESS,
-    sharpness: sharpness,
+    sharpness: parseInt(sharpness),
   };
 }
 
@@ -113,6 +114,13 @@ export function setSharpness(sharpness) {
 export function setGreyscale(greyscale) {
   return {
     type: SET_GREYSCALE,
-    greyscale: greyscale,
+    greyscale: parseFloat(greyscale),
+  };
+}
+
+export function setAbleToChange(ableToChange) {
+  return {
+    type: SET_ABLE_TO_CHANGE,
+    ableToChange: ableToChange,
   };
 }

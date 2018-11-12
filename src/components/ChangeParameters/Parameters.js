@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import { setBrightness, setContrast, setSaturation, setSharpness, setGreyscale } from '../../actions';
+import { setBrightness, setContrast, setSaturation, setSharpness, setGreyscale, setAbleToChange } from '../../actions';
 import { Row, Col } from 'reactstrap';
 import './Parameters.css';
 import { connect } from 'react-redux';
@@ -25,6 +25,13 @@ class Parameters extends Component {
     this.props.setGreyscale(e.target.value);
   };
 
+  mouseDown = () => {
+    this.props.setAbleToChange(false);
+  };
+
+  mouseUp = () => {
+    this.props.setAbleToChange(true);
+  };
 
   render() {
     let { brightness, contrast, saturation, sharpness, greyscale } = this.props.parameters;
@@ -34,7 +41,7 @@ class Parameters extends Component {
         <Col>
           <label for="Brightness">Brightness: {brightness}</label>
           <input type="range" class="Range custom-range" min="0" max="255" step="1" id="brightness" value={brightness}
-                 onChange={this.changeBrightness}/>
+                 onInput={this.changeBrightness} onMouseDown={this.mouseDown} onMouseUp={this.mouseUp}/>
         </Col>
       </Row>
       <Row>
@@ -42,7 +49,7 @@ class Parameters extends Component {
 
           <label for="Contrast">Contrast: {contrast}</label>
           <input type="range" class="Range custom-range" min="0" max="255" step="1" id="contrast" value={contrast}
-                 onChange={this.changeContrast}/>
+                 onChange={this.changeContrast} onMouseDown={this.mouseDown} onMouseUp={this.mouseUp}/>
         </Col>
       </Row>
       <Row>
@@ -50,7 +57,7 @@ class Parameters extends Component {
 
           <label for="Saturation">Saturation: {saturation}</label>
           <input type="range" class="Range custom-range" min="1" max="2" step="0.1" id="saturation" value={saturation}
-                 onChange={this.changeSaturation}/>
+                 onChange={this.changeSaturation} onMouseDown={this.mouseDown} onMouseUp={this.mouseUp}/>
         </Col>
       </Row>
       <Row>
@@ -58,7 +65,7 @@ class Parameters extends Component {
 
           <label for="Sharpness">Sharpness: {sharpness}</label>
           <input type="range" class="Range custom-range" min="0" max="255" step="1" id="sharpness" value={sharpness}
-                 onChange={this.changeSharpness}/>
+                 onChange={this.changeSharpness} onMouseDown={this.mouseDown} onMouseUp={this.mouseUp}/>
         </Col>
       </Row>
       <Row>
@@ -66,8 +73,11 @@ class Parameters extends Component {
 
           <label for="Grey Scale">Grey Scale: {greyscale}</label>
           <input type="range" class="Range custom-range" min="0" max="1" step="0.2" id="greyscale" value={greyscale}
-                 onChange={this.changeGreyscale}/>
+                 onChange={this.changeGreyscale} onMouseDown={this.mouseDown} onMouseUp={this.mouseUp}/>
         </Col>
+      </Row>
+      <Row>
+        <button type="reset">Reset</button>
       </Row>
     </div>
   }
@@ -86,6 +96,7 @@ function mapDispatchToProps(dispatch) {
     setSaturation: (saturation) => dispatch(setSaturation(saturation)),
     setSharpness: (sharpness) => dispatch(setSharpness(sharpness)),
     setGreyscale: (greyscale) => dispatch(setGreyscale(greyscale)),
+    setAbleToChange: (ableToChange) => dispatch(setAbleToChange(ableToChange))
   };
 }
 

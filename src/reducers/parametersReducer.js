@@ -3,6 +3,7 @@ export const SET_CONTRAST = 'SET_CONTRAST';
 export const SET_SATURATION = 'SET_SATURATION';
 export const SET_SHARPNESS = 'SET_SHARPNESS';
 export const SET_GREYSCALE = 'SET_GREYSCALE';
+export const SET_ABLE_TO_CHANGE = 'SET_ABLE_TO_CHANGE';
 
     export const parametersReducer = (state = [], action) => {
   switch (action.type) {
@@ -16,6 +17,8 @@ export const SET_GREYSCALE = 'SET_GREYSCALE';
       return { ...state, sharpness: action.sharpness };
     case SET_GREYSCALE:
       return { ...state, greyscale: action.greyscale };
+    case SET_ABLE_TO_CHANGE:
+      return { ...state, ableToChange: action.ableToChange };
 
     default:
       return state

@@ -20,6 +20,7 @@ const initialState = {
     saturation:0,
     sharpness: 0,
     greyscale: 0,
+    ableToChange: true,
   }
 };
 

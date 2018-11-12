@@ -1,17 +1,42 @@
 import React, { Component } from 'react';
 import './Canvas.css';
+import {
+  iteratePixels,
+  modifyBrightness,
+  modifyContrast,
+  modifySaturation,
+  modifySharpness,
+  modifyGreyscale
+} from './modifiers';
+import connect from 'react-redux/es/connect/connect';
 
 class Canvas extends Component {
 
   componentDidMount() {
-    let canvas = this.refs.canvas;
-    let ctx = canvas.getContext("2d");
-    let img = this.refs.image;
+    const canvas = this.refs.canvas;
+    this.ctx = canvas.getContext('2d');
+    const img = this.refs.image;
 
     img.onload = () => {
-      ctx.clearRect(0, 0, 1910, 1080);
-      ctx.drawImage(img, 0, 0);
+      this.ctx.clearRect(0, 0, 1910, 1080);
+      this.ctx.drawImage(img, 0, 0);
     }
+  }
+
+  componentDidUpdate() {
+    if (this.props.parameters.ableToChange === false) return;
+
+    this.ctx.clearRect(0, 0, 1910, 1080);
+    this.ctx.drawImage(this.refs.image, 0, 0);
+    const imgData = this.ctx.getImageData(0, 0, 1910, 1080);
+
+    iteratePixels(this.props.parameters.brightness, imgData.data, modifyBrightness);
+    iteratePixels(this.props.parameters.contrast, imgData.data, modifyContrast);
+    iteratePixels(this.props.parameters.saturation, imgData.data, modifySaturation);
+    iteratePixels(this.props.parameters.sharpness, imgData.data, modifySharpness);
+    iteratePixels(this.props.parameters.greyscale, imgData.data, modifyGreyscale);
+
+    this.ctx.putImageData(imgData, 0, 0);
   }
 
   render() {
@@ -24,4 +49,10 @@ class Canvas extends Component {
   }
 }
 
-export default Canvas;
+function mapStateToProps(state) {
+  return {
+    parameters: state.parameters,
+  };
+}
+
+export default connect(mapStateToProps)(Canvas);
