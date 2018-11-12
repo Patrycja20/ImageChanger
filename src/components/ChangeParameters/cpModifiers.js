@@ -5,12 +5,19 @@ export function truncate(value) {
   return value;
 }
 
-export function iteratePixels(value, arrayPixels, modifyFunction) {
+export function iteratePixels(values, arrayPixels) {
   for (let i = 0; i < arrayPixels.length; i += 4) {
     let r = arrayPixels[i];
     let g = arrayPixels[i + 1];
     let b = arrayPixels[i + 2];
-    const result = modifyFunction(r, g, b, value);
+
+    let result = modifyInvertedColor(r, g, b, values.invertedColor);
+    result = modifyBlackAndWhite(result.r, result.g, result.b, values.blackAndWhite);
+    result = modifyBrightness(result.r, result.g, result.b, values.brightness);
+    result = modifyContrast(result.r, result.g, result.b, values.contrast);
+    result = modifySaturation(result.r, result.g, result.b, values.saturation);
+    result = modifyNumberOfShades(result.r, result.g, result.b, values.numberOfShades);
+
     arrayPixels[i] = result.r;
     arrayPixels[i + 1] = result.g;
     arrayPixels[i + 2] = result.b;
@@ -43,17 +50,7 @@ export function modifySaturation(r, g, b, value) {
   return { r, g, b }
 }
 
-export function modifyVignetting(width, height, ctx, value) {
-  if(value===0) return;
-  const gradient = ctx.createRadialGradient(width/2, height/2, width/8, width/2,height/2, (1/ value) * width/4);
-
-  gradient.addColorStop(0, 'rgba(0,0,0,0)');
-  gradient.addColorStop(1, 'rgba(0,0,0,0.8)');
-
-  return gradient;
-}
-
-export function modifynNumberOfShades(r, g, b, value) {
+export function modifyNumberOfShades(r, g, b, value) {
   if (value === 0) return { r, g, b };
 
   const conversionFactor = 255 / value;
@@ -81,4 +78,14 @@ export function modifyInvertedColor(r, g, b, value) {
   g = 255 - g;
   b = 255 - b;
   return { r, g, b }
+}
+
+export function modifyVignetting(width, height, ctx, value) {
+  if (value === 0) return;
+  const gradient = ctx.createRadialGradient(width / 2, height / 2, width / 8, width / 2, height / 2, (1 / value) * width / 4);
+
+  gradient.addColorStop(0, 'rgba(0,0,0,0)');
+  gradient.addColorStop(1, 'rgba(0,0,0,0.8)');
+
+  return gradient;
 }
