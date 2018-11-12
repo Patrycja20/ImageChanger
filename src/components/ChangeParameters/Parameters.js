@@ -40,7 +40,7 @@ class Parameters extends Component {
       <Row>
         <Col>
           <label for="Brightness">Brightness: {brightness}</label>
-          <input type="range" class="Range custom-range" min="0" max="255" step="1" id="brightness" value={brightness}
+          <input type="range" class="Range custom-range" min="-255" max="255" step="1" id="brightness" value={brightness}
                  onInput={this.changeBrightness} onMouseDown={this.mouseDown} onMouseUp={this.mouseUp}/>
         </Col>
       </Row>
@@ -48,7 +48,7 @@ class Parameters extends Component {
         <Col>
 
           <label for="Contrast">Contrast: {contrast}</label>
-          <input type="range" class="Range custom-range" min="0" max="255" step="1" id="contrast" value={contrast}
+          <input type="range" class="Range custom-range" min="-255" max="255" step="1" id="contrast" value={contrast}
                  onChange={this.changeContrast} onMouseDown={this.mouseDown} onMouseUp={this.mouseUp}/>
         </Col>
       </Row>
@@ -56,7 +56,7 @@ class Parameters extends Component {
         <Col>
 
           <label for="Saturation">Saturation: {saturation}</label>
-          <input type="range" class="Range custom-range" min="1" max="2" step="0.1" id="saturation" value={saturation}
+          <input type="range" class="Range custom-range" min="0" max="2" step="0.1" id="saturation" value={saturation}
                  onChange={this.changeSaturation} onMouseDown={this.mouseDown} onMouseUp={this.mouseUp}/>
         </Col>
       </Row>
