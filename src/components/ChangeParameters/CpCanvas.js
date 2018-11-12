@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import './Canvas.css';
+import './CpCanvas.css';
 import {
   iteratePixels,
   modifyBrightness,
@@ -8,10 +8,10 @@ import {
   modifySharpness,
   modifynNumberOfShades,
   modifyBlackAndWhite
-} from './modifiers';
+} from './cpModifiers';
 import connect from 'react-redux/es/connect/connect';
 
-class Canvas extends Component {
+class CpCanvas extends Component {
 
   componentDidMount() {
     const canvas = this.refs.canvas;
@@ -31,13 +31,12 @@ class Canvas extends Component {
     this.ctx.drawImage(this.refs.image, 0, 0);
     const imgData = this.ctx.getImageData(0, 0, this.props.width, this.props.height);
 
+    iteratePixels(this.props.parameters.blackAndWhite, imgData.data, modifyBlackAndWhite);
     iteratePixels(this.props.parameters.brightness, imgData.data, modifyBrightness);
     iteratePixels(this.props.parameters.contrast, imgData.data, modifyContrast);
     iteratePixels(this.props.parameters.saturation, imgData.data, modifySaturation);
     iteratePixels(this.props.parameters.sharpness, imgData.data, modifySharpness);
     iteratePixels(this.props.parameters.numberOfShades, imgData.data, modifynNumberOfShades);
-    iteratePixels(this.props.parameters.blackAndWhite, imgData.data, modifyBlackAndWhite);
-
 
     this.ctx.putImageData(imgData, 0, 0);
   }
@@ -58,4 +57,4 @@ function mapStateToProps(state) {
   };
 }
 
-export default connect(mapStateToProps)(Canvas);
+export default connect(mapStateToProps)(CpCanvas);

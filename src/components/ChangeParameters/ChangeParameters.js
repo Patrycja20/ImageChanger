@@ -1,21 +1,21 @@
 import React, { Component } from 'react';
 import { Row, Col, Container } from 'reactstrap';
-import Header from './Header';
-import Parameters from './Parameters';
-import ChooseImage from './ChooseImage';
+import CpHeader from './CpHeader';
+import CpParameters from './CpParameters';
+import CpChooseImage from './CpChooseImage';
 
 class ChangeParameters extends Component {
   render() {
     return (
       <div>
-        <Header/>
+        <CpHeader/>
         <Container fluid>
           <Row>
             <Col md={4} xl={3}>
-              <Parameters/>
+              <CpParameters/>
             </Col>
             <Col md={8} xl={9}>
-              <ChooseImage/>
+              <CpChooseImage/>
             </Col>
           </Row>
         </Container>

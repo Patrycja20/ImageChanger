@@ -1,10 +1,10 @@
 import React, {Component} from 'react';
 import {Link} from 'react-router-dom';
-import {Col} from 'reactstrap';
-import './Header.css';
+import './CpHeader.css';
+
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 
-class Header extends Component {
+class CpHeader extends Component {
   render() {
     return (
       <nav className="Header navbar navbar-expand-sm">
@@ -19,4 +19,4 @@ class Header extends Component {
   }
 }
 
-export default Header;
+export default CpHeader;

@@ -51,7 +51,7 @@ export function modifySharpness(r, g, b, value) {
 }
 
 export function modifynNumberOfShades(r, g, b, value) {
-  if(value === 0) return {r, g, b};
+  if (value === 0) return { r, g, b };
 
   const conversionFactor = 255 / value;
   const averageValue = (r + g + b) / 3;
@@ -63,7 +63,7 @@ export function modifynNumberOfShades(r, g, b, value) {
 }
 
 export function modifyBlackAndWhite(r, g, b, value) {
-  if(value === false) return {r, g, b};
+  if (value === false) return { r, g, b };
 
   const gray = (r * 0.2126 + g * 0.7152 + b * 0.0722)
   r = truncate(gray);

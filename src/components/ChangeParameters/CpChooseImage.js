@@ -1,8 +1,8 @@
 import React, { Component } from 'react';
-import Canvas from './Canvas';
-import './ChooseImage.css';
+import CpCanvas from './CpCanvas';
+import './CPChooseImage.css';
 
-class ChooseImage extends Component {
+class CpChooseImage extends Component {
   constructor(props) {
     super(props);
     this.state = { file: '', imageViewUrl: '', height: null, width: null};
@@ -53,7 +53,7 @@ class ChooseImage extends Component {
     let { imageViewUrl } = this.state;
     let $imageView = null;
     if (imageViewUrl && this.state.width > 0 && this.state.height > 0) {
-      $imageView = (<Canvas width={this.state.width} height={this.state.height} name={imageViewUrl}/>);
+      $imageView = (<CpCanvas width={this.state.width} height={this.state.height} name={imageViewUrl}/>);
     } else {
       $imageView = (<div>Please select an Image<br/>
         <canvas width={1910} height={1080}/>
@@ -74,4 +74,4 @@ class ChooseImage extends Component {
   }
 }
 
-export default ChooseImage;
+export default CpChooseImage;

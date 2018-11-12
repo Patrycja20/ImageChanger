@@ -5,13 +5,14 @@ import {
   setSaturation,
   setSharpness,
   setAbleToChange,
-  setNumberOfShades, setBlackAndWhite
+  setNumberOfShades,
+  setBlackAndWhite,
 } from '../../actions';
 import { Row, Col } from 'reactstrap';
-import './Parameters.css';
+import './CpParameters.css';
 import { connect } from 'react-redux';
 
-class Parameters extends Component {
+class CpParameters extends Component {
   changeBrightness = (e) => {
     this.props.setBrightness(e.target.value);
   };
@@ -119,4 +120,4 @@ function mapDispatchToProps(dispatch) {
   };
 }
 
-export default connect(mapStateToProps, mapDispatchToProps)(Parameters);
+export default connect(mapStateToProps, mapDispatchToProps)(CpParameters);
