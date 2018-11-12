@@ -17,6 +17,7 @@ import {
   SET_SHARPNESS,
   SET_NUMBER_OF_SHADES,
   SET_BLACK_AND_WHITE,
+  RESET_PARAMETERS,
   SET_ABLE_TO_CHANGE,
 } from '../reducers/parametersReducer';
 
@@ -123,6 +124,12 @@ export function setBlackAndWhite(blackAndWhite) {
   return {
     type: SET_BLACK_AND_WHITE,
     blackAndWhite: blackAndWhite,
+  };
+}
+
+export function resetParameters() {
+  return {
+    type: RESET_PARAMETERS,
   };
 }
 

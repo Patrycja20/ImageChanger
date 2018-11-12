@@ -1,11 +1,13 @@
 import React, { Component } from 'react';
 import CpCanvas from './CpCanvas';
 import './CPChooseImage.css';
+import { resetParameters } from '../../actions';
+import connect from 'react-redux/es/connect/connect';
 
 class CpChooseImage extends Component {
   constructor(props) {
     super(props);
-    this.state = { file: '', imageViewUrl: '', height: null, width: null};
+    this.state = { file: '', imageViewUrl: '', height: null, width: null };
   }
 
   getImageSize = (file) => {
@@ -35,10 +37,10 @@ class CpChooseImage extends Component {
 
   _handleImageChange(e) {
     e.preventDefault();
-
     let reader = new FileReader();
     let file = e.target.files[0];
     this.getImageSize(file);
+    this.props.resetParameters();
 
     reader.onloadend = () => {
       this.setState({
@@ -56,14 +58,14 @@ class CpChooseImage extends Component {
       $imageView = (<CpCanvas width={this.state.width} height={this.state.height} name={imageViewUrl}/>);
     } else {
       $imageView = (<div>Please select an Image<br/>
-        <canvas width={1910} height={1080}/>
+        <canvas width={1920} height={1080}/>
       </div>);
     }
 
     return (
       <div className="ChooseImage">
         <form onSubmit={(e) => this._handleSubmit(e)}>
-          <input className="fileInput" type="file" onChange={(e) => this._handleImageChange(e)}/> Preferowane maks.
+          <input className="fileInput" type="file" onChange={(e) => this._handleImageChange(e)}/> Preferred max.
           (1920 x 1080)
         </form>
         <div className="imgView">
@@ -74,4 +76,16 @@ class CpChooseImage extends Component {
   }
 }
 
-export default CpChooseImage;
+function mapStateToProps(state) {
+  return {
+    parameters: state.parameters,
+  };
+}
+
+function mapDispatchToProps(dispatch) {
+  return {
+    resetParameters: () => dispatch(resetParameters()),
+  };
+}
+
+export default connect(mapStateToProps, mapDispatchToProps)(CpChooseImage);

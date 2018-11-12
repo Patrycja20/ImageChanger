@@ -1,122 +1,156 @@
 .InputsRange {
-    padding-top: 30px;
-    padding-right: 2rem;
-    padding-left: 2rem;
+  padding-top: 30px;
+  padding-right: 2rem;
+  padding-left: 2rem;
 }
 
 .InputsRange label {
-    color: #471d69;
-    font-family: "Leelawadee", Arial, sans-serif;
+  color: #471d69;
+  font-family: "Leelawadee", Arial, sans-serif;
+  user-select: none;
+}
+
+.InputsRange label:active {
+
 }
 
 .InputsRange input[type=range] {
-    padding-bottom: 20px;
-    width: 100%;
+  padding-bottom: 20px;
+  width: 100%;
 }
 
 .InputsRange input[type=range]::-webkit-slider-thumb {
-    box-shadow: 0px 0px 0px #000000;
-    border: 1px solid #e0eae3;
-    height: 18px;
-    width: 18px;
-    border-radius: 25px;
-    background: #471d69;
-    cursor: pointer;
-    -webkit-appearance: none;
-    margin-top: -7px;
+  box-shadow: 0px 0px 0px #000000;
+  border: 1px solid #e0eae3;
+  height: 18px;
+  width: 18px;
+  border-radius: 25px;
+  background: #471d69;
+  cursor: pointer;
+  -webkit-appearance: none;
+  margin-top: -7px;
 }
 
 .InputsRange input[type=range]::-moz-range-thumb {
-    box-shadow: 0px 0px 0px #000000;
-    border: 1px solid #e0eae3;
-    height: 18px;
-    width: 18px;
-    border-radius: 25px;
-    background: #471d69;
-    cursor: pointer;
+  box-shadow: 0px 0px 0px #000000;
+  border: 1px solid #e0eae3;
+  height: 18px;
+  width: 18px;
+  border-radius: 25px;
+  background: #471d69;
+  cursor: pointer;
 }
 
 .InputsRange input[type=range]:focus::-webkit-slider-runnable-track {
-    background: #ddccf7;
+  background: #ddccf7;
 }
 
 .InputsRange input[type=range]::-ms-thumb {
-    margin-top: 1px;
-    box-shadow: 0px 0px 0px #000000;
-    border: 1px solid #e0eae3;
-    height: 18px;
-    width: 18px;
-    border-radius: 25px;
-    background: #471d69;
-    cursor: pointer;
+  margin-top: 1px;
+  box-shadow: 0px 0px 0px #000000;
+  border: 1px solid #e0eae3;
+  height: 18px;
+  width: 18px;
+  border-radius: 25px;
+  background: #471d69;
+  cursor: pointer;
 }
 
 /* The container */
 .CheckBox {
-    display: block;
-    position: relative;
-    padding-left: 35px;
-    margin-bottom: 12px;
-    cursor: pointer;
-    -webkit-user-select: none;
-    -moz-user-select: none;
-    -ms-user-select: none;
-    user-select: none;
+  display: block;
+  position: relative;
+  padding-left: 35px;
+  margin-top: 10px;
+  margin-bottom: 24px;
+  cursor: pointer;
+  -webkit-user-select: none;
+  -moz-user-select: none;
+  -ms-user-select: none;
+  user-select: none;
+  background-color: #dee2e6;
+  border-radius: 10px;
 }
+
 .CheckBox label {
-    color: #471d69;
+  user-select: none;
 }
 
 /* Hide the browser's default checkbox */
 .CheckBox input {
-    position: absolute;
-    opacity: 0;
-    cursor: pointer;
-    height: 0;
-    width: 0;
+  position: absolute;
+  opacity: 0;
+  cursor: pointer;
+  height: 0;
+  width: 0;
 }
 
 /* Create a custom checkbox */
 .checkmark {
-    position: absolute;
-    top: 0;
-    left: 0;
-    height: 25px;
-    width: 25px;
-    background-color: #eee;
+  position: absolute;
+  top: 0;
+  left: 0;
+  height: 25px;
+  width: 25px;
+  background-color: #ffffff;
+  border: solid 2px #471d69;
 }
 
 /* On mouse-over, add a grey background color */
 .CheckBox:hover input ~ .checkmark {
-    background-color: #ccc;
+  background-color: #471d69;
+  border: solid 2px #471d69;
 }
 
 /* When the checkbox is checked, add a blue background */
 .CheckBox input:checked ~ .checkmark {
-    background-color: #471d69;
+  background-color: #471d69;
 }
 
 /* Create the checkmark/indicator (hidden when not checked) */
 .checkmark:after {
-    content: "";
-    position: absolute;
-    display: none;
+  content: "";
+  position: absolute;
+  display: none;
 }
 
 /* Show the checkmark when checked */
 .CheckBox input:checked ~ .checkmark:after {
-    display: block;
+  display: block;
 }
 
 /* Style the checkmark/indicator */
 .CheckBox .checkmark:after {
-    left: 9px;
-    top: 5px;
-    width: 5px;
-    height: 10px;
-    border: solid white;
-    border-width: 0 3px 3px 0;
-    -webkit-transform: rotate(45deg);
-    -ms-transform: rotate(45deg);
-    transform: rotate(45deg);
+  left: 9px;
+  top: 5px;
+  width: 5px;
+  height: 10px;
+  border: solid white;
+  border-width: 0 3px 3px 0;
+  -webkit-transform: rotate(45deg);
+  -ms-transform: rotate(45deg);
+  transform: rotate(45deg);
+}
+
+.ClearParameters {
+  background-color: #672a96;
+  border: solid 2px #622991;
+  float: right;
+  user-select: none;
+}
+
+.ClearParameters:hover {
+  background-color: #855abe;
+  border: solid 2px #775abe;
+  box-shadow: none;
+}
+
+.ClearParameters:active {
+  background-color: #672a96;
+  border: solid 2px #622991;
+  user-select: none;
+}
+
+.ClearParameters:focus {
+  box-shadow: none;
 }
