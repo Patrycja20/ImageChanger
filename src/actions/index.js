@@ -18,6 +18,7 @@ import {
   SET_VIGNETTING,
   SET_NUMBER_OF_SHADES,
   SET_BLACK_AND_WHITE,
+  SET_INVERTED_COLOR,
   RESET_PARAMETERS,
   SET_IS_LOADED,
   SET_ABLE_TO_CHANGE,
@@ -132,6 +133,13 @@ export function setBlackAndWhite(blackAndWhite) {
   return {
     type: SET_BLACK_AND_WHITE,
     blackAndWhite: blackAndWhite,
+  };
+}
+
+export function setInvertedColor(invertedColor) {
+  return {
+    type: SET_INVERTED_COLOR,
+    invertedColor: invertedColor,
   };
 }
 

@@ -7,7 +7,8 @@ import {
   modifySaturation,
   modifyVignetting,
   modifynNumberOfShades,
-  modifyBlackAndWhite
+  modifyBlackAndWhite,
+  modifyInvertedColor
 } from './cpModifiers';
 import connect from 'react-redux/es/connect/connect';
 
@@ -35,6 +36,7 @@ class CpCanvas extends Component {
     }
     const imgData = this.ctx.getImageData(0, 0, this.props.width, this.props.height);
 
+    iteratePixels(this.props.parameters.invertedColor, imgData.data, modifyInvertedColor);
     iteratePixels(this.props.parameters.blackAndWhite, imgData.data, modifyBlackAndWhite);
     iteratePixels(this.props.parameters.brightness, imgData.data, modifyBrightness);
     iteratePixels(this.props.parameters.contrast, imgData.data, modifyContrast);

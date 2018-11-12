@@ -4,6 +4,7 @@ export const SET_SATURATION = 'SET_SATURATION';
 export const SET_VIGNETTING = 'SET_VIGNETTING';
 export const SET_NUMBER_OF_SHADES = 'SET_NUMBER_OF_SHADES';
 export const SET_BLACK_AND_WHITE = 'SET_BLACK_AND_WHITE';
+export const SET_INVERTED_COLOR = 'SET_INVERTED_COLOR';
 export const RESET_PARAMETERS = 'RESET_PARAMETERS';
 export const SET_IS_LOADED = 'SET_IS_LOADED';
 export const SET_ABLE_TO_CHANGE = 'SET_ABLE_TO_CHANGE';
@@ -22,6 +23,8 @@ export const SET_ABLE_TO_CHANGE = 'SET_ABLE_TO_CHANGE';
       return { ...state, numberOfShades: action.numberOfShades };
     case SET_BLACK_AND_WHITE:
       return { ...state, blackAndWhite: action.blackAndWhite };
+    case SET_INVERTED_COLOR:
+      return { ...state, invertedColor: action.invertedColor };
     case RESET_PARAMETERS:
       return {
         ...state,

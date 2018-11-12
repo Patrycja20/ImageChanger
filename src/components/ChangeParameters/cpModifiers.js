@@ -74,3 +74,11 @@ export function modifyBlackAndWhite(r, g, b, value) {
   b = truncate(gray);
   return { r, g, b }
 }
+
+export function modifyInvertedColor(r, g, b, value) {
+  if (value === false) return { r, g, b };
+  r = 255 - r;
+  g = 255 - g;
+  b = 255 - b;
+  return { r, g, b }
+}

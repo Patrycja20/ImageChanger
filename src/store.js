@@ -23,6 +23,7 @@ const initialState = {
     vignetting: 0,
     numberOfShades: 0,
     blackAndWhite: false,
+    invertedColor: false,
     isLoaded: false,
     ableToChange: true,
   }
