@@ -12,19 +12,10 @@
     border-right: black solid 1px;
 }
 
-.Drawing .raquo-delimeter {
-    font-size: 1.25rem;
+.Drawing .back-icon {
     padding-left: 15px;
     padding-right: 30px;
     border-right: 1px solid #65c931;
-    text-decoration: none;
-    color: rgba(255, 255, 255, 0.5);
-}
-
-.Drawing .raquo-delimeter:hover {
-    color: rgba(0, 0, 0, .9);
-    text-decoration: none;
-    color: #e6e6e6;
 }
 
 .Drawing .navbar-brand {

@@ -7,13 +7,15 @@
 
 .FilterImages .FilterImage {
     padding-top: 18px;
+    transition: 0.25s;
 }
 
 .FilterImages .FilterImage:hover {
-    padding-top: 20px;
+    animation-duration: 4s;
     box-shadow: 0 1px 14px 0;
     color: #d87c2d;
-    text-decoration: #d87c2d overline double ;
+    text-decoration: #d87c2d overline double;
+    transform: scale(1.03);
 }
 
 .FilterImages .Frame {
@@ -23,44 +25,4 @@
 
 .Photo .Frame {
     padding: 50px;
-}
-
-.Winter {
-    filter: brightness(0.7) grayscale(0.4) hue-rotate(200deg);
-    -webkit-filter: brightness(0.7) grayscale(0.4) hue-rotate(200deg);
-}
-
-.CoffeeWithMilk {
-    filter: brightness(1.1) contrast(2.1) sepia(0.9);
-    -webkit-filter: brightness(1.1) contrast(2.1) sepia(0.9);
-}
-
-.Spring {
-    filter: brightness(1) hue-rotate(60deg);
-    -webkit-filter: brightness(1) hue-rotate(60deg);
-}
-
-.Tea {
-    filter: contrast(0.8) sepia(0.8);
-    -webkit-filter: contrast(0.8) sepia(0.8);
-}
-
-.BlackWhite {
-    filter: grayscale(1);
-    -webkit-filter: grayscale(1);
-}
-
-.DirtyWindow {
-    filter: blur(2px) brightness(1.5);
-    -webkit-filter: blur(1px) brightness(1.5);
-}
-
-.Fairyland {
-    filter: contrast(1.9) saturate(1.5);
-    -webkit-filter: contrast(1.9) saturate(1.5);
-}
-
-.ViceVersa {
-    filter: brightness(1.8) grayscale(0.2) hue-rotate(180deg) invert(0.9) sepia(0.4);
-    -webkit-filter: brightness(1.8) grayscale(0.2) hue-rotate(180deg) invert(0.9) sepia(0.4);
 }

@@ -30,18 +30,10 @@
 }
 
 .Filters .Back .back-icon {
-  font-size: 1.25rem;
   padding-right: 30px;
   border-right: 1px solid #e19711;
-  text-decoration: none;
-  color: rgba(255, 255, 255, 0.5);
-  transform: scale(2);
 }
 
-.Filters .Back .back-icon:hover {
-  text-decoration: none;
-  color: rgba(255, 255, 255, 0.8);
-}
 
 .Filters .Back .navbar-brand {
   display: inline-block;

@@ -3,7 +3,7 @@ import { connect } from 'react-redux';
 import { Link } from 'react-router-dom';
 import { Row, Col, Container } from 'reactstrap';
 
-import { setImageURL } from '../../actions/index';
+import { setImageDimensions, setImageURL } from '../../actions/index';
 import Images from './FiltersImages';
 import './Filters.css';
 
@@ -21,12 +21,24 @@ class Filters extends Component {
 
     const reader = new FileReader();
     const file = e.target.files[0];
+    this.getImageSize(file);
 
     reader.onloadend = () => {
       this.props.setImageURL(reader.result);
     };
     reader.readAsDataURL(file);
   };
+
+  getImageSize = (file) => {
+    const url = URL.createObjectURL(file);
+    const image = new Image();
+
+    image.onload = () => {
+      this.props.setImageDimensions(image.width, image.height);
+    };
+    image.src = url;
+  };
+
 
   render() {
     const { imageURL } = this.props.filters;
@@ -70,6 +82,7 @@ function mapStateToProps(state) {
 function mapDispatchToProps(dispatch) {
   return {
     setImageURL: (imageURL) => dispatch(setImageURL(imageURL)),
+    setImageDimensions: (width, height) => dispatch(setImageDimensions(width, height)),
   };
 }
 

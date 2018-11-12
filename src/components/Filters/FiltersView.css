@@ -1,4 +1,13 @@
 .Filters .full-view {
-    position: absolute;
-    height: calc(90%);
+  position: absolute;
+  height: calc(100% - 56px - 20px);
+  width: 100%;
+  padding-top: 20px;
+}
+
+.Filters .max-foto-size {
+  display: table;
+  margin: auto;
+  max-height: 100%;
+  max-width: 100%;
 }

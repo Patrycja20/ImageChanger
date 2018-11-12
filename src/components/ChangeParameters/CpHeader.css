@@ -14,11 +14,8 @@
 }
 
 .Header .back-icon {
-    font-size: 1.25rem;
     padding-right: 30px;
     border-right: 1px solid #8e37cb;
-    text-decoration: none;
-    color: rgba(255, 255, 255, 0.5);
 }
 
 .Header .Brand {
@@ -31,10 +28,6 @@
     color: white;
 }
 
-.Back .back-icon:hover {
-    text-decoration: none;
-    color: rgba(255, 255, 255, 0.8);
-}
 
 .Back {
     padding-right: 20px;

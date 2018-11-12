@@ -13,6 +13,8 @@ const initialState = {
   filters: {
     selectedFilter: null,
     imageURL: null,
+    width: null,
+    height: null,
   },
   parameters: {
     brightness: 0,

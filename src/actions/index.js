@@ -6,6 +6,7 @@ import {
 } from '../reducers/drawingReducer';
 
 import {
+  SET_IMAGE_DIMENSIONS,
   SET_IMAGE_URL,
   SET_SELECTED_FILTER,
 } from '../reducers/filtersReducer';
@@ -72,6 +73,13 @@ export function setImageURL(imageURL) {
   };
 }
 
+export function setImageDimensions(width, height) {
+  return {
+    type: SET_IMAGE_DIMENSIONS,
+    width,
+    height,
+  };
+}
 
 export function setSelectedFilter(selectedFilter) {
   return {
@@ -79,7 +87,6 @@ export function setSelectedFilter(selectedFilter) {
     selectedFilter: selectedFilter,
   };
 }
-
 
 /////Parameters
 export function setBrightness(brightness) {
