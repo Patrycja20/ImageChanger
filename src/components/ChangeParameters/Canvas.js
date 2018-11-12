@@ -19,7 +19,7 @@ class Canvas extends Component {
     const img = this.refs.image;
 
     img.onload = () => {
-      this.ctx.clearRect(0, 0, 1910, 1080);
+      this.ctx.clearRect(0, 0, this.props.width, this.props.height);
       this.ctx.drawImage(img, 0, 0);
     }
   }
@@ -27,9 +27,9 @@ class Canvas extends Component {
   componentDidUpdate() {
     if (this.props.parameters.ableToChange === false) return;
 
-    this.ctx.clearRect(0, 0, 1910, 1080);
+    this.ctx.clearRect(0, 0, this.props.width, this.props.height);
     this.ctx.drawImage(this.refs.image, 0, 0);
-    const imgData = this.ctx.getImageData(0, 0, 1910, 1080);
+    const imgData = this.ctx.getImageData(0, 0, this.props.width, this.props.height);
 
     iteratePixels(this.props.parameters.brightness, imgData.data, modifyBrightness);
     iteratePixels(this.props.parameters.contrast, imgData.data, modifyContrast);
@@ -38,13 +38,14 @@ class Canvas extends Component {
     iteratePixels(this.props.parameters.numberOfShades, imgData.data, modifynNumberOfShades);
     iteratePixels(this.props.parameters.blackAndWhite, imgData.data, modifyBlackAndWhite);
 
+
     this.ctx.putImageData(imgData, 0, 0);
   }
 
   render() {
     return (
       <div>
-        <canvas ref="canvas" width={1910} height={1080}/>
+        <canvas ref="canvas" width={this.props.width} height={this.props.height}/>
         <img ref="image" src={this.props.name} className="hidden"/>
       </div>
     )

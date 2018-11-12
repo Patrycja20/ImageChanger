@@ -1,12 +1,33 @@
-import React, {Component} from 'react';
+import React, { Component } from 'react';
 import Canvas from './Canvas';
 import './ChooseImage.css';
 
 class ChooseImage extends Component {
   constructor(props) {
     super(props);
-    this.state = { file: '', imageViewUrl: '' };
+    this.state = { file: '', imageViewUrl: '', height: null, width: null};
   }
+
+  getImageSize = (file) => {
+
+    this.setState({
+      width: null,
+      height: null
+    });
+
+    const url = URL.createObjectURL(file);
+    const image = new Image();
+
+    image.onload = () => {
+      const { width, height } = image;
+      this.setState({
+        width: width,
+        height: height
+      });
+    };
+
+    image.src = url;
+  };
 
   _handleSubmit(e) {
     e.preventDefault();
@@ -17,6 +38,7 @@ class ChooseImage extends Component {
 
     let reader = new FileReader();
     let file = e.target.files[0];
+    this.getImageSize(file);
 
     reader.onloadend = () => {
       this.setState({
@@ -24,23 +46,25 @@ class ChooseImage extends Component {
         imageViewUrl: reader.result
       });
     }
-
     reader.readAsDataURL(file);
   }
 
   render() {
     let { imageViewUrl } = this.state;
     let $imageView = null;
-    if (imageViewUrl) {
-      $imageView = (<Canvas name={imageViewUrl} />);
+    if (imageViewUrl && this.state.width > 0 && this.state.height > 0) {
+      $imageView = (<Canvas width={this.state.width} height={this.state.height} name={imageViewUrl}/>);
     } else {
-      $imageView = (<div>Please select an Image<br/><canvas width={1910} height={1080}/></div>);
+      $imageView = (<div>Please select an Image<br/>
+        <canvas width={1910} height={1080}/>
+      </div>);
     }
 
     return (
       <div className="ChooseImage">
         <form onSubmit={(e) => this._handleSubmit(e)}>
-          <input className="fileInput" type="file" onChange={(e) => this._handleImageChange(e)} /> Preferowane maks. (1920 x 1080)
+          <input className="fileInput" type="file" onChange={(e) => this._handleImageChange(e)}/> Preferowane maks.
+          (1920 x 1080)
         </form>
         <div className="imgView">
           {$imageView}
