@@ -5,7 +5,7 @@ import {
   modifyBrightness,
   modifyContrast,
   modifySaturation,
-  modifySharpness,
+  modifyVignetting,
   modifynNumberOfShades,
   modifyBlackAndWhite
 } from './cpModifiers';
@@ -29,13 +29,16 @@ class CpCanvas extends Component {
 
     this.ctx.clearRect(0, 0, this.props.width, this.props.height);
     this.ctx.drawImage(this.refs.image, 0, 0);
+    if (this.props.parameters.vignetting !== 0) {
+      this.ctx.fillStyle = modifyVignetting(this.props.width, this.props.height, this.ctx, this.props.parameters.vignetting);
+      this.ctx.fillRect(0, 0, this.props.width, this.props.height);
+    }
     const imgData = this.ctx.getImageData(0, 0, this.props.width, this.props.height);
 
     iteratePixels(this.props.parameters.blackAndWhite, imgData.data, modifyBlackAndWhite);
     iteratePixels(this.props.parameters.brightness, imgData.data, modifyBrightness);
     iteratePixels(this.props.parameters.contrast, imgData.data, modifyContrast);
     iteratePixels(this.props.parameters.saturation, imgData.data, modifySaturation);
-    iteratePixels(this.props.parameters.sharpness, imgData.data, modifySharpness);
     iteratePixels(this.props.parameters.numberOfShades, imgData.data, modifynNumberOfShades);
 
     this.ctx.putImageData(imgData, 0, 0);

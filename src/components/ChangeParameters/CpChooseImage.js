@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import CpCanvas from './CpCanvas';
 import './CPChooseImage.css';
-import { resetParameters } from '../../actions';
+import { resetParameters, setIsLoaded } from '../../actions';
 import connect from 'react-redux/es/connect/connect';
 
 class CpChooseImage extends Component {
@@ -43,6 +43,7 @@ class CpChooseImage extends Component {
     this.props.resetParameters();
 
     reader.onloadend = () => {
+      this.props.setIsLoaded(true);
       this.setState({
         file: file,
         imageViewUrl: reader.result
@@ -85,6 +86,7 @@ function mapStateToProps(state) {
 function mapDispatchToProps(dispatch) {
   return {
     resetParameters: () => dispatch(resetParameters()),
+    setIsLoaded: (isLoaded) => dispatch(setIsLoaded(isLoaded))
   };
 }
 

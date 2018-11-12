@@ -18,9 +18,10 @@ const initialState = {
     brightness: 0,
     contrast: 0,
     saturation: 1.0,
-    sharpness: 0,
+    vignetting: 0,
     numberOfShades: 0,
     blackAndWhite: false,
+    isLoaded: false,
     ableToChange: true,
   }
 };

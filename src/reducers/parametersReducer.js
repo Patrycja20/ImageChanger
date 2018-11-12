@@ -1,10 +1,11 @@
 export const SET_BRIGHTNESS = 'SET_BRIGHTNESS';
 export const SET_CONTRAST = 'SET_CONTRAST';
 export const SET_SATURATION = 'SET_SATURATION';
-export const SET_SHARPNESS = 'SET_SHARPNESS';
+export const SET_VIGNETTING = 'SET_VIGNETTING';
 export const SET_NUMBER_OF_SHADES = 'SET_NUMBER_OF_SHADES';
 export const SET_BLACK_AND_WHITE = 'SET_BLACK_AND_WHITE';
 export const RESET_PARAMETERS = 'RESET_PARAMETERS';
+export const SET_IS_LOADED = 'SET_IS_LOADED';
 export const SET_ABLE_TO_CHANGE = 'SET_ABLE_TO_CHANGE';
 
     export const parametersReducer = (state = [], action) => {
@@ -15,8 +16,8 @@ export const SET_ABLE_TO_CHANGE = 'SET_ABLE_TO_CHANGE';
       return { ...state, contrast: action.contrast };
     case SET_SATURATION:
       return { ...state, saturation: action.saturation };
-    case SET_SHARPNESS:
-      return { ...state, sharpness: action.sharpness };
+    case SET_VIGNETTING:
+      return { ...state, vignetting: action.vignetting };
     case SET_NUMBER_OF_SHADES:
       return { ...state, numberOfShades: action.numberOfShades };
     case SET_BLACK_AND_WHITE:
@@ -27,10 +28,12 @@ export const SET_ABLE_TO_CHANGE = 'SET_ABLE_TO_CHANGE';
         brightness: 0,
         contrast: 0,
         saturation: 1.0,
-        sharpness: 0,
+        vignetting: 0,
         numberOfShades: 0,
         blackAndWhite: false,
       };
+    case SET_IS_LOADED:
+      return { ...state, isLoaded: action.isLoaded };
     case SET_ABLE_TO_CHANGE:
       return { ...state, ableToChange: action.ableToChange };
 

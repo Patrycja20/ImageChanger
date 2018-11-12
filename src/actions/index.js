@@ -14,10 +14,11 @@ import {
   SET_BRIGHTNESS,
   SET_CONTRAST,
   SET_SATURATION,
-  SET_SHARPNESS,
+  SET_VIGNETTING,
   SET_NUMBER_OF_SHADES,
   SET_BLACK_AND_WHITE,
   RESET_PARAMETERS,
+  SET_IS_LOADED,
   SET_ABLE_TO_CHANGE,
 } from '../reducers/parametersReducer';
 
@@ -105,10 +106,10 @@ export function setSaturation(saturation) {
 }
 
 
-export function setSharpness(sharpness) {
+export function setVignetting(vignetting) {
   return {
-    type: SET_SHARPNESS,
-    sharpness: parseInt(sharpness),
+    type: SET_VIGNETTING,
+    vignetting: parseFloat(vignetting),
   };
 }
 
@@ -130,6 +131,13 @@ export function setBlackAndWhite(blackAndWhite) {
 export function resetParameters() {
   return {
     type: RESET_PARAMETERS,
+  };
+}
+
+export function setIsLoaded(isLoaded) {
+  return {
+    type: SET_IS_LOADED,
+    isLoaded: isLoaded,
   };
 }
 

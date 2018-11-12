@@ -43,11 +43,14 @@ export function modifySaturation(r, g, b, value) {
   return { r, g, b }
 }
 
-export function modifySharpness(r, g, b, value) {
-  r = truncate(r + value);
-  g = truncate(g + value);
-  b = truncate(b + value);
-  return { r, g, b }
+export function modifyVignetting(width, height, ctx, value) {
+  if(value===0) return;
+  const gradient = ctx.createRadialGradient(width/2, height/2, width/8, width/2,height/2, (1/ value) * width/4);
+
+  gradient.addColorStop(0, 'rgba(0,0,0,0)');
+  gradient.addColorStop(1, 'rgba(0,0,0,0.8)');
+
+  return gradient;
 }
 
 export function modifynNumberOfShades(r, g, b, value) {
