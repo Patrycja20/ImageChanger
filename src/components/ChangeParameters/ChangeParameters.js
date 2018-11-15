@@ -3,15 +3,18 @@ import { Row, Col, Container } from 'reactstrap';
 import CpHeader from './CpHeader';
 import CpParameters from './CpParameters';
 import CpChooseImage from './CpChooseImage';
+import connect from 'react-redux/es/connect/connect';
 
 class ChangeParameters extends Component {
   render() {
+    let { isLoaded } = this.props.parameters;
+    const blocked = isLoaded ? "" : "blur(1px) opacity(0.4)";
     return (
       <div>
         <CpHeader/>
         <Container fluid>
           <Row>
-            <Col md={4} xl={3}>
+            <Col md={4} xl={3} style={{filter: blocked}}>
               <CpParameters/>
             </Col>
             <Col md={8} xl={9}>
@@ -24,5 +27,10 @@ class ChangeParameters extends Component {
   }
 }
 
-export default ChangeParameters;
+function mapStateToProps(state) {
+  return {
+    parameters: state.parameters,
+  };
+}
 
+export default connect(mapStateToProps)(ChangeParameters);
