@@ -8,6 +8,8 @@ import connect from 'react-redux/es/connect/connect';
 
 class CpCanvas extends Component {
 
+
+
   componentDidMount() {
     const canvas = this.refs.canvas;
     this.ctx = canvas.getContext('2d');
@@ -17,8 +19,20 @@ class CpCanvas extends Component {
       this.ctx.clearRect(0, 0, this.props.width, this.props.height);
       this.ctx.drawImage(img, 0, 0);
     }
+    //canvas.addEventListener('mousemove', pick);
   }
 
+ /* function pick(event) {
+    const x = event.layerX;
+    const y = event.layerY;
+    const pixel = this.ctx.getImageData(x, y, 1, 1);
+    const data = pixel.data;
+    const rgba = 'rgba(' + data[0] + ', ' + data[1] + ', ' + data[2] + ', ' + (data[3] / 255) + ')';
+    const color = document.getElementById('PixelColor');
+    color.style.background =  rgba;
+    color.textContent = rgba;
+  }
+  */
   componentDidUpdate() {
     if (this.props.parameters.ableToChange === false) return;
 
@@ -30,8 +44,6 @@ class CpCanvas extends Component {
     }
     const imgData = this.ctx.getImageData(0, 0, this.props.width, this.props.height);
     iteratePixels(this.props.parameters, imgData.data);
-
-    this.ctx.putImageData(imgData, 0, 0);
   }
 
   render() {

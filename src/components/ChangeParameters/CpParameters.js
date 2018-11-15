@@ -86,6 +86,7 @@ class CpParameters extends Component {
           <span className="checkmark"></span>
         </label></Col>
       </Row>
+      <hr/>
       <Row>
         <Col>
           <label for="Brightness" onDoubleClick={() => this.props.setBrightness(0)}>Brightness: {brightness}</label>
@@ -150,7 +151,10 @@ class CpParameters extends Component {
       </Row>
       <hr/>
       < Row>
-        <Col>
+        <Col md={4} xl={9}>Pixel's color
+          <div id="PixelColor" style={{width:"15px", height:"15px", border: "1px solid #471d69"}}></div>
+        </Col>
+        <Col md={4} xl={3}>
           <button className="btn btn-info btn-lg ClearParameters" type='reset'
                   onClick={this.props.resetParameters}> Reset
           </button>
