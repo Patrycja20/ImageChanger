@@ -6,6 +6,9 @@ import {
   setVignetting,
   setAbleToChange,
   setNumberOfShades,
+  setRed,
+  setGreen,
+  setBlue,
   resetParameters,
   setBlackAndWhite,
   setInvertedColor,
@@ -43,6 +46,18 @@ class CpParameters extends Component {
     this.props.setInvertedColor(e.target.checked);
   };
 
+  changeRed = (e) => {
+    this.props.setRed(e.target.checked);
+  };
+
+  changeGreen = (e) => {
+    this.props.setGreen(e.target.checked);
+  };
+
+  changeBlue = (e) => {
+    this.props.setBlue(e.target.checked);
+  };
+
   mouseDown = () => {
     this.props.setAbleToChange(false);
   };
@@ -52,8 +67,25 @@ class CpParameters extends Component {
   };
 
   render() {
-    let { brightness, contrast, saturation, vignetting, numberOfShades, blackAndWhite, invertedColor, isLoaded } = this.props.parameters;
+    let {brightness, contrast, saturation, vignetting, numberOfShades, blackAndWhite, invertedColor, red, green, blue, isLoaded} = this.props.parameters;
     return <div className="InputsRange">
+      <Row>
+        <Col md={4} xl={4}>
+          <label className="CheckBox" onDoubleClick={() => this.props.setRed(true)}>r
+          <input type="checkbox" id="red" disabled={!isLoaded} onChange={this.changeRed} checked={red}/>
+          <span className="checkmark"></span>
+        </label></Col>
+        <Col md={4} xl={4}>
+          <label className="CheckBox" onDoubleClick={() => this.props.setGreen(true)}>g
+          <input type="checkbox" id="blue" disabled={!isLoaded} onChange={this.changeGreen} checked={green}/>
+          <span className="checkmark"></span>
+        </label></Col>
+        <Col md={4} xl={4}>
+          <label className="CheckBox" onDoubleClick={() => this.props.setBlue(true)}>b
+          <input type="checkbox" id="green" disabled={!isLoaded} onChange={this.changeBlue} checked={blue}/>
+          <span className="checkmark"></span>
+        </label></Col>
+      </Row>
       <Row>
         <Col>
           <label for="Brightness" onDoubleClick={() => this.props.setBrightness(0)}>Brightness: {brightness}</label>
@@ -142,7 +174,10 @@ function mapDispatchToProps(dispatch) {
     setVignetting: (vignetting) => dispatch(setVignetting(vignetting)),
     setNumberOfShades: (numberOfShades) => dispatch(setNumberOfShades(numberOfShades)),
     setBlackAndWhite: (blackAndWhite) => dispatch(setBlackAndWhite(blackAndWhite)),
-    setInvertedColor:(invertedColor) => dispatch(setInvertedColor(invertedColor)),
+    setInvertedColor: (invertedColor) => dispatch(setInvertedColor(invertedColor)),
+    setRed:(red) => dispatch(setRed(red)),
+    setGreen:(green) => dispatch(setGreen(green)),
+    setBlue:(blue) => dispatch(setBlue(blue)),
     resetParameters: () => dispatch(resetParameters()),
     setAbleToChange: (ableToChange) => dispatch(setAbleToChange(ableToChange))
   };

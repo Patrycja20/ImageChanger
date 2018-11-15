@@ -24,6 +24,9 @@ const initialState = {
     numberOfShades: 0,
     blackAndWhite: false,
     invertedColor: false,
+    red: true,
+    green: true,
+    blue: true,
     isLoaded: false,
     ableToChange: true,
   }

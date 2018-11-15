@@ -29,7 +29,6 @@ class CpCanvas extends Component {
       this.ctx.fillRect(0, 0, this.props.width, this.props.height);
     }
     const imgData = this.ctx.getImageData(0, 0, this.props.width, this.props.height);
-
     iteratePixels(this.props.parameters, imgData.data);
 
     this.ctx.putImageData(imgData, 0, 0);

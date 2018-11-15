@@ -19,6 +19,9 @@ import {
   SET_NUMBER_OF_SHADES,
   SET_BLACK_AND_WHITE,
   SET_INVERTED_COLOR,
+  SET_RED,
+  SET_GREEN,
+  SET_BLUE,
   RESET_PARAMETERS,
   SET_IS_LOADED,
   SET_ABLE_TO_CHANGE,
@@ -140,6 +143,27 @@ export function setInvertedColor(invertedColor) {
   return {
     type: SET_INVERTED_COLOR,
     invertedColor: invertedColor,
+  };
+}
+
+export function setRed(red) {
+  return {
+    type: SET_RED,
+    red: red,
+  };
+}
+
+export function setGreen(green) {
+  return {
+    type: SET_GREEN,
+    green: green,
+  };
+}
+
+export function setBlue(blue) {
+  return {
+    type: SET_BLUE,
+    blue: blue,
   };
 }
 
