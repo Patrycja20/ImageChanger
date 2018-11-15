@@ -95,6 +95,7 @@ class CpParameters extends Component {
                  onChange={this.changeNumberOfShades} onMouseDown={this.mouseDown} onMouseUp={this.mouseUp}/>
         </Col>
       </Row>
+      <hr/>
       <Row>
         <Col>
           <label className="CheckBox" onDoubleClick={() => this.props.setBlackAndWhite(false)}>
@@ -115,6 +116,7 @@ class CpParameters extends Component {
           </label>
         </Col>
       </Row>
+      <hr/>
       < Row>
         <Col>
           <button className="btn btn-info btn-lg ClearParameters" type='reset'

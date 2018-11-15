@@ -7,7 +7,7 @@ import connect from 'react-redux/es/connect/connect';
 class CpChooseImage extends Component {
   constructor(props) {
     super(props);
-    this.state = { file: '', imageViewUrl: '', height: null, width: null };
+    this.state = {file: '', imageViewUrl: '', height: null, width: null};
   }
 
   getImageSize = (file) => {
@@ -20,7 +20,7 @@ class CpChooseImage extends Component {
     const image = new Image();
 
     image.onload = () => {
-      const { width, height } = image;
+      const {width, height} = image;
       this.setState({
         width: width,
         height: height
@@ -37,10 +37,10 @@ class CpChooseImage extends Component {
   _handleImageChange(e) {
     e.preventDefault();
     this.props.setIsLoaded(false);
+    this.props.resetParameters();
     let reader = new FileReader();
     let file = e.target.files[0];
     this.getImageSize(file);
-    this.props.resetParameters();
 
     reader.onloadend = () => {
       this.props.setIsLoaded(true);
@@ -53,7 +53,7 @@ class CpChooseImage extends Component {
   }
 
   render() {
-    let { imageViewUrl } = this.state;
+    let {imageViewUrl} = this.state;
     let $imageView = null;
     if (imageViewUrl && this.state.width > 0 && this.state.height > 0) {
       $imageView = (<CpCanvas width={this.state.width} height={this.state.height} name={imageViewUrl}/>);

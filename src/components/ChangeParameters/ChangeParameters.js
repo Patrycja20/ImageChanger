@@ -7,8 +7,8 @@ import connect from 'react-redux/es/connect/connect';
 
 class ChangeParameters extends Component {
   render() {
-    let { isLoaded } = this.props.parameters;
-    const blocked = isLoaded ? "" : "blur(1px) opacity(0.4)";
+    let {isLoaded} = this.props.parameters;
+    const blocked = isLoaded ? "" : "grayscale(0.9) opacity(0.4)";
     return (
       <div>
         <CpHeader/>
