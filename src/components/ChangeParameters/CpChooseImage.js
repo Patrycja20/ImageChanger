@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import CpCanvas from './CpCanvas';
-import './CPChooseImage.css';
+import './CpChooseImage.css';
 import { resetParameters, setIsLoaded } from '../../actions';
 import connect from 'react-redux/es/connect/connect';
 
@@ -16,7 +16,6 @@ class CpChooseImage extends Component {
       width: null,
       height: null
     });
-
     const url = URL.createObjectURL(file);
     const image = new Image();
 
@@ -37,6 +36,7 @@ class CpChooseImage extends Component {
 
   _handleImageChange(e) {
     e.preventDefault();
+    this.props.setIsLoaded(false);
     let reader = new FileReader();
     let file = e.target.files[0];
     this.getImageSize(file);

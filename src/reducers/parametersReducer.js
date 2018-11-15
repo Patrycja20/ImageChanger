@@ -34,6 +34,7 @@ export const SET_ABLE_TO_CHANGE = 'SET_ABLE_TO_CHANGE';
         vignetting: 0,
         numberOfShades: 0,
         blackAndWhite: false,
+        invertedColor: false,
       };
     case SET_IS_LOADED:
       return { ...state, isLoaded: action.isLoaded };
