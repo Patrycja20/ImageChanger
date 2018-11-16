@@ -18,6 +18,7 @@ import { CIRCLE, DRAW, LINE, RECTANGLE, TRIANGLE } from '../../reducers/drawingR
 import { changeFillMode, setColor, setDrawMode, setPaintSize } from '../../actions/index';
 import helpers from './drawingHelpers';
 import './DrawingButtons.css'
+import { canvasDownloadPopup } from '../../helpers';
 
 library.add(faPencilAlt);
 library.add(faMinus);
@@ -51,7 +52,7 @@ export class DrawingButtons extends Component {
   };
 
   saveAsJpg = () => {
-    helpers.canvasDownloadPopup(this.props.drawing.canvasRef);
+   canvasDownloadPopup(this.props.drawing.canvasRef);
   };
 
   render() {

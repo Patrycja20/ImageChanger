@@ -11,8 +11,9 @@ export const SET_BLUE = 'SET_BLUE';
 export const RESET_PARAMETERS = 'RESET_PARAMETERS';
 export const SET_IS_LOADED = 'SET_IS_LOADED';
 export const SET_ABLE_TO_CHANGE = 'SET_ABLE_TO_CHANGE';
+export const SET_CANVAS_REF = 'SET_CANVAS_REF';
 
-    export const parametersReducer = (state = [], action) => {
+export const parametersReducer = (state = [], action) => {
   switch (action.type) {
     case SET_BRIGHTNESS:
       return { ...state, brightness: action.brightness };
@@ -52,6 +53,8 @@ export const SET_ABLE_TO_CHANGE = 'SET_ABLE_TO_CHANGE';
       return { ...state, isLoaded: action.isLoaded };
     case SET_ABLE_TO_CHANGE:
       return { ...state, ableToChange: action.ableToChange };
+    case SET_CANVAS_REF:
+      return { ...state, canvasRef: action.reference };
 
     default:
       return state

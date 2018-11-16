@@ -28,6 +28,9 @@
     color: white;
 }
 
+.Header .button-save {
+    padding-left: 20px;
+}
 
 .Back {
     padding-right: 20px;

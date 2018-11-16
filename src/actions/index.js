@@ -2,7 +2,8 @@ import {
   SET_DRAW_MODE,
   SET_PAINT_SIZE,
   SET_COLOR,
-  SET_CANVAS_REF, CHANGE_FILL_MODE,
+  SET_CANVAS_REF,
+  CHANGE_FILL_MODE,
 } from '../reducers/drawingReducer';
 
 import {

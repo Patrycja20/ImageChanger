@@ -5,6 +5,7 @@ import {
   modifyVignetting,
 } from './cpModifiers';
 import connect from 'react-redux/es/connect/connect';
+import { setCanvasReference } from '../../actions';
 
 const SCROLL_WIDTH = 18;
 
@@ -12,6 +13,8 @@ class CpCanvas extends Component {
 
   componentDidMount() {
     const canvas = this.refs.canvas;
+    this.props.setCanvasReference(this.refs.canvas);
+
     this.ctx = canvas.getContext('2d');
     const img = this.refs.image;
 
@@ -64,4 +67,10 @@ function mapStateToProps(state) {
   };
 }
 
-export default connect(mapStateToProps)(CpCanvas);
+function mapDispatchToProps(dispatch) {
+  return {
+    setCanvasReference: (canvasReference) => dispatch(setCanvasReference(canvasReference)),
+  };
+}
+
+export default connect(mapStateToProps, mapDispatchToProps)(CpCanvas);

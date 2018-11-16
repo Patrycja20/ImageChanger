@@ -7,7 +7,7 @@ import './FiltersView.css';
 import { library } from '@fortawesome/fontawesome-svg-core'
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import { faAngleLeft, faLongArrowAltRight } from '@fortawesome/free-solid-svg-icons'
-import helpers from '../Drawing/drawingHelpers';
+import { canvasDownloadPopup } from '../../helpers';
 
 library.add(faAngleLeft);
 library.add(faLongArrowAltRight);
@@ -33,7 +33,7 @@ class FiltersView extends Component {
   }
 
   saveAsJpg = () => {
-    helpers.canvasDownloadPopup(this.refs.canvas);
+    canvasDownloadPopup(this.refs.canvas);
   };
 
   render() {

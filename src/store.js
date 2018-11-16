@@ -29,6 +29,7 @@ const initialState = {
     blue: true,
     isLoaded: false,
     ableToChange: true,
+    canvasRef: true,
   }
 };
 
