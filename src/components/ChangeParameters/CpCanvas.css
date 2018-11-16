@@ -1,3 +1,15 @@
 .hidden {
-display: none;
+  display: none;
+}
+
+.CpCanvas {
+  max-height: 537px;
+  margin-right: 50px;
+
+  overflow: hidden;
+  box-sizing: border-box;
+  overflow-y: scroll;
+  overflow-x: auto;
+
+  box-shadow: 0 0 10px 2px rgba(0, 0, 0, 0.75);
 }

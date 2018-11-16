@@ -6,9 +6,9 @@ import {
 } from './cpModifiers';
 import connect from 'react-redux/es/connect/connect';
 
+const SCROLL_WIDTH = 18;
+
 class CpCanvas extends Component {
-
-
 
   componentDidMount() {
     const canvas = this.refs.canvas;
@@ -50,7 +50,7 @@ class CpCanvas extends Component {
 
   render() {
     return (
-      <div>
+      <div className="CpCanvas" style={{ maxWidth: this.props.width + SCROLL_WIDTH }}>
         <canvas ref="canvas" width={this.props.width} height={this.props.height}/>
         <img ref="image" src={this.props.name} className="hidden"/>
       </div>

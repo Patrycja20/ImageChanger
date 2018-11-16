@@ -58,7 +58,7 @@ class CpChooseImage extends Component {
     if (imageViewUrl && this.state.width > 0 && this.state.height > 0) {
       $imageView = (<CpCanvas width={this.state.width} height={this.state.height} name={imageViewUrl}/>);
     } else {
-      $imageView = (<div>Please select an Image<br/>
+      $imageView = (<div className='canvasHolder'>Please select an Image<br/>
         <canvas width={1920} height={1080}/>
       </div>);
     }
@@ -69,9 +69,7 @@ class CpChooseImage extends Component {
           <input className="fileInput" type="file" onChange={(e) => this._handleImageChange(e)}/> Preferred max.
           (1920 x 1080)
         </form>
-        <div className="imgView">
-          {$imageView}
-        </div>
+        {$imageView}
       </div>
     )
   }
