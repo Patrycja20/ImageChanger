@@ -26,6 +26,7 @@ import {
   RESET_PARAMETERS,
   SET_IS_LOADED,
   SET_ABLE_TO_CHANGE,
+  RESET_STORE,
 } from '../reducers/parametersReducer';
 
 export const contactsFetched = (contacts) => ({
@@ -171,6 +172,12 @@ export function setBlue(blue) {
 export function resetParameters() {
   return {
     type: RESET_PARAMETERS,
+  };
+}
+
+export function resetStore() {
+  return {
+    type: RESET_STORE,
   };
 }
 

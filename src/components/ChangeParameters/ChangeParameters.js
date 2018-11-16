@@ -4,17 +4,21 @@ import CpHeader from './CpHeader';
 import CpParameters from './CpParameters';
 import CpChooseImage from './CpChooseImage';
 import connect from 'react-redux/es/connect/connect';
+import { resetStore } from '../../actions';
 
 class ChangeParameters extends Component {
+
+  componentDidMount() {
+    this.props.resetStore();
+  }
+
   render() {
-    let {isLoaded} = this.props.parameters;
-    const blocked = isLoaded ? "" : "grayscale(0.9) opacity(0.4)";
     return (
       <div>
         <CpHeader/>
         <Container fluid>
           <Row>
-            <Col md={4} xl={3} style={{filter: blocked}}>
+            <Col md={4} xl={3}>
               <CpParameters/>
             </Col>
             <Col md={8} xl={9}>
@@ -27,10 +31,14 @@ class ChangeParameters extends Component {
   }
 }
 
-function mapStateToProps(state) {
+function mapStateToProps() {
+  return {};
+}
+
+function mapDispatchToProps(dispatch) {
   return {
-    parameters: state.parameters,
+    resetStore: () => dispatch(resetStore()),
   };
 }
 
-export default connect(mapStateToProps)(ChangeParameters);
+export default connect(mapStateToProps, mapDispatchToProps)(ChangeParameters);

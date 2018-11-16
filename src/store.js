@@ -2,7 +2,7 @@ import { createStore } from 'redux';
 import reducers from './reducers/index';
 import { DRAW } from './reducers/drawingReducer';
 
-const initialState = {
+export const initialStoreState = {
   drawing: {
     drawMode: DRAW,
     paintSize: 10,
@@ -33,4 +33,4 @@ const initialState = {
   }
 };
 
-export const store = createStore(reducers, initialState);
+export const store = createStore(reducers, initialStoreState);

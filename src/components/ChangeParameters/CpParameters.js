@@ -68,7 +68,10 @@ class CpParameters extends Component {
 
   render() {
     let {brightness, contrast, saturation, vignetting, numberOfShades, blackAndWhite, invertedColor, red, green, blue, isLoaded} = this.props.parameters;
-    return <div className="InputsRange">
+
+    const blocked = isLoaded ? "" : "grayscale(0.9) opacity(0.4)";
+
+    return <div className="InputsRange" style={{filter: blocked}}>
       <Row>
         <Col md={4} xl={4}>
           <label className="CheckBox" onDoubleClick={() => this.props.setRed(true)}>r

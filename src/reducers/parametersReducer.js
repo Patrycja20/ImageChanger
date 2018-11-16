@@ -1,3 +1,5 @@
+import { initialStoreState } from '../store';
+
 export const SET_BRIGHTNESS = 'SET_BRIGHTNESS';
 export const SET_CONTRAST = 'SET_CONTRAST';
 export const SET_SATURATION = 'SET_SATURATION';
@@ -9,6 +11,7 @@ export const SET_RED = 'SET_RED';
 export const SET_GREEN = 'SET_GREEN';
 export const SET_BLUE = 'SET_BLUE';
 export const RESET_PARAMETERS = 'RESET_PARAMETERS';
+export const RESET_STORE = 'RESET_STORE';
 export const SET_IS_LOADED = 'SET_IS_LOADED';
 export const SET_ABLE_TO_CHANGE = 'SET_ABLE_TO_CHANGE';
 export const SET_CANVAS_REF = 'SET_CANVAS_REF';
@@ -55,6 +58,8 @@ export const parametersReducer = (state = [], action) => {
       return { ...state, ableToChange: action.ableToChange };
     case SET_CANVAS_REF:
       return { ...state, canvasRef: action.reference };
+    case RESET_STORE:
+      return initialStoreState.parameters;
 
     default:
       return state
