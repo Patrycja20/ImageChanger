@@ -3,7 +3,7 @@ import { Row, Col, Container } from 'reactstrap';
 import CpHeader from './CpHeader';
 import CpParameters from './CpParameters';
 import CpChooseImage from './CpChooseImage';
-import connect from 'react-redux/es/connect/connect';
+import { connect } from 'react-redux';
 import { resetStore } from '../../actions';
 
 class ChangeParameters extends Component {

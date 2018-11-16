@@ -4,7 +4,7 @@ import {
   iteratePixels,
   modifyVignetting,
 } from './cpModifiers';
-import connect from 'react-redux/es/connect/connect';
+import { connect } from 'react-redux';
 import { setCanvasReference } from '../../actions';
 
 const SCROLL_WIDTH = 18;
