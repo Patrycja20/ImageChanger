@@ -19,25 +19,25 @@ export const SET_CANVAS_REF = 'SET_CANVAS_REF';
 export const parametersReducer = (state = [], action) => {
   switch (action.type) {
     case SET_BRIGHTNESS:
-      return { ...state, brightness: action.brightness };
+      return {...state, brightness: action.brightness};
     case SET_CONTRAST:
-      return { ...state, contrast: action.contrast };
+      return {...state, contrast: action.contrast};
     case SET_SATURATION:
-      return { ...state, saturation: action.saturation };
+      return {...state, saturation: action.saturation};
     case SET_VIGNETTING:
-      return { ...state, vignetting: action.vignetting };
+      return {...state, vignetting: action.vignetting};
     case SET_NUMBER_OF_SHADES:
-      return { ...state, numberOfShades: action.numberOfShades };
+      return {...state, numberOfShades: action.numberOfShades};
     case SET_BLACK_AND_WHITE:
-      return { ...state, blackAndWhite: action.blackAndWhite };
+      return {...state, blackAndWhite: action.blackAndWhite};
     case SET_INVERTED_COLOR:
-      return { ...state, invertedColor: action.invertedColor };
+      return {...state, invertedColor: action.invertedColor};
     case SET_RED:
-      return { ...state, red: action.red };
+      return {...state, red: action.red};
     case SET_GREEN:
-      return { ...state, green: action.green };
+      return {...state, green: action.green};
     case SET_BLUE:
-      return { ...state, blue: action.blue };
+      return {...state, blue: action.blue};
     case RESET_PARAMETERS:
       return {
         ...state,
@@ -53,15 +53,14 @@ export const parametersReducer = (state = [], action) => {
         invertedColor: false,
       };
     case SET_IS_LOADED:
-      return { ...state, isLoaded: action.isLoaded };
+      return {...state, isLoaded: action.isLoaded};
     case SET_ABLE_TO_CHANGE:
-      return { ...state, ableToChange: action.ableToChange };
+      return {...state, ableToChange: action.ableToChange};
     case SET_CANVAS_REF:
-      return { ...state, canvasRef: action.reference };
+      return {...state, canvasRef: action.reference};
     case RESET_STORE:
       return initialStoreState.parameters;
-
     default:
-      return state
+      return state;
   }
 };

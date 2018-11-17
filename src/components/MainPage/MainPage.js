@@ -1,20 +1,19 @@
 import React, { Component } from 'react';
 import { Container } from 'reactstrap';
-import Header from './Header';
-import Links from './Links';
-import Footer from './Footer';
-
+import MpHeader from './MpHeader';
+import MpLinks from './MpLinks';
+import MpFooter from './MpFooter';
 
 class MainPage extends Component {
   render() {
     return (
       <div className='MainPage'>
         <Container fluid>
-          <Header/>
+          <MpHeader/>
         </Container>
         <Container>
-          <Links/>
-          <Footer/>
+          <MpLinks/>
+          <MpFooter/>
         </Container>
       </div>
     );

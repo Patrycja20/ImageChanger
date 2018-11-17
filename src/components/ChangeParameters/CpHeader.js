@@ -24,7 +24,7 @@ class CpHeader extends Component {
             <span className='navbar-brand'>Change Parameters</span>
           </Link>
         </div>
-        <div className='nav-item button-save' style={{ display: isDisplayDownloadButton ? 'inline' : 'none' }}>
+        <div className='nav-item button-save' style={{display: isDisplayDownloadButton ? 'inline' : 'none'}}>
           <button type="button" className="btn btn-secondary" onClick={this.saveAsJpg}>Save as *.jpg</button>
         </div>
       </nav>

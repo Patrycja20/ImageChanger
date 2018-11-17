@@ -8,9 +8,8 @@ import './FiltersImages.css';
 import { filtersList } from './filtersHelpers';
 
 class FiltersImages extends Component {
-
   imageTileRenderer = (filtersList) => {
-    const { imageURL } = this.props.filters;
+    const {imageURL} = this.props.filters;
 
     return filtersList.map((filter) => (
       <Col md={4} xs={6} className="FilterImage" key={filter.name}>
@@ -19,7 +18,7 @@ class FiltersImages extends Component {
           <img
             onClick={() => this.props.setSelectedFilter(filter)}
             className='Frame'
-            style={{ filter: filter.specification }}
+            style={{filter: filter.specification}}
             src={imageURL}
             alt={filter.name}
           />

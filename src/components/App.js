@@ -30,6 +30,7 @@ const mapStateToProps = (state) => {
     contacts: state.contacts
   }
 };
+
 const mapDispatchToProps = {contactsFetched};
 
 export default withRouter(connect(mapStateToProps, mapDispatchToProps)(App));

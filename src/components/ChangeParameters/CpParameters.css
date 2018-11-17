@@ -1,8 +1,5 @@
 .InputsRange {
-    padding-top: 1.5rem;
-    padding-right: 2rem;
-    padding-left: 2rem;
-    padding-bottom: 1.5rem;
+    padding: 1.5rem 2rem 2rem 1.5rem;
 }
 
 .InputsRange label {
@@ -17,7 +14,7 @@
 }
 
 .InputsRange input[type=range]::-webkit-slider-thumb {
-    box-shadow: 0px 0px 0px #000000;
+    box-shadow: 0 0 0 #000000;
     border: 1px solid #e0eae3;
     height: 18px;
     width: 18px;
@@ -29,7 +26,7 @@
 }
 
 .InputsRange input[type=range]::-moz-range-thumb {
-    box-shadow: 0px 0px 0px #000000;
+    box-shadow: 0 0 0 #000000;
     border: 1px solid #e0eae3;
     height: 18px;
     width: 18px;
@@ -44,7 +41,7 @@
 
 .InputsRange input[type=range]::-ms-thumb {
     margin-top: 1px;
-    box-shadow: 0px 0px 0px #000000;
+    box-shadow: 0 0 0 #000000;
     border: 1px solid #e0eae3;
     height: 18px;
     width: 18px;
@@ -52,9 +49,11 @@
     background: #471d69;
     cursor: pointer;
 }
+
 .InputsRange hr {
     margin: 10px;
 }
+
 /* The container */
 .CheckBox {
     display: block;
@@ -85,7 +84,7 @@
 }
 
 /* Create a custom checkbox */
-.checkmark {
+.Checkmark {
     position: absolute;
     top: 0;
     left: 0;
@@ -96,30 +95,30 @@
 }
 
 /* On mouse-over, add a grey background color */
-.CheckBox:hover input ~ .checkmark {
+.CheckBox:hover input ~ .Checkmark {
     background-color: #471d69;
     border: solid 2px #471d69;
 }
 
 /* When the checkbox is checked, add a blue background */
-.CheckBox input:checked ~ .checkmark {
+.CheckBox input:checked ~ .Checkmark {
     background-color: #471d69;
 }
 
 /* Create the checkmark/indicator (hidden when not checked) */
-.checkmark:after {
+.Checkmark:after {
     content: "";
     position: absolute;
     display: none;
 }
 
 /* Show the checkmark when checked */
-.CheckBox input:checked ~ .checkmark:after {
+.CheckBox input:checked ~ .Checkmark:after {
     display: block;
 }
 
 /* Style the checkmark/indicator */
-.CheckBox .checkmark:after {
+.CheckBox .Checkmark:after {
     left: 9px;
     top: 5px;
     width: 5px;

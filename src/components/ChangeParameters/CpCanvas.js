@@ -25,17 +25,17 @@ class CpCanvas extends Component {
     //canvas.addEventListener('mousemove', pick);
   }
 
- /* function pick(event) {
-    const x = event.layerX;
-    const y = event.layerY;
-    const pixel = this.ctx.getImageData(x, y, 1, 1);
-    const data = pixel.data;
-    const rgba = 'rgba(' + data[0] + ', ' + data[1] + ', ' + data[2] + ', ' + (data[3] / 255) + ')';
-    const color = document.getElementById('PixelColor');
-    color.style.background =  rgba;
-    color.textContent = rgba;
-  }
-  */
+  /* function pick(event) {
+     const x = event.layerX;
+     const y = event.layerY;
+     const pixel = this.ctx.getImageData(x, y, 1, 1);
+     const data = pixel.data;
+     const rgba = 'rgba(' + data[0] + ', ' + data[1] + ', ' + data[2] + ', ' + (data[3] / 255) + ')';
+     const color = document.getElementById('PixelColor');
+     color.style.background =  rgba;
+     color.textContent = rgba;
+   }
+   */
   componentDidUpdate() {
     if (this.props.parameters.ableToChange === false) return;
 
@@ -53,9 +53,9 @@ class CpCanvas extends Component {
 
   render() {
     return (
-      <div className="CpCanvas" style={{ maxWidth: this.props.width + SCROLL_WIDTH }}>
+      <div className="CpCanvas" style={{maxWidth: this.props.width + SCROLL_WIDTH}}>
         <canvas ref="canvas" width={this.props.width} height={this.props.height}/>
-        <img ref="image" src={this.props.name} className="hidden"/>
+        <img ref="image" src={this.props.name} alt="" className="hidden"/>
       </div>
     )
   }

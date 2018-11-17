@@ -12,7 +12,6 @@ class CpChooseImage extends Component {
   }
 
   getImageSize = (file) => {
-
     this.setState({
       width: null,
       height: null
@@ -31,10 +30,6 @@ class CpChooseImage extends Component {
     image.src = url;
   };
 
-  _handleSubmit(e) {
-    e.preventDefault();
-  }
-
   _handleImageChange(e) {
     e.preventDefault();
     this.props.setIsLoaded(false);
@@ -49,12 +44,12 @@ class CpChooseImage extends Component {
         file: file,
         imageViewUrl: reader.result
       });
-    }
+    };
     reader.readAsDataURL(file);
   }
 
   getInfoAboutPhoto = () => {
-    const { width, height } = this.state;
+    const {width, height} = this.state;
     if ((width > 0 && height > 0) === false) return 'Module preffers max. 5 Mpix photo';
 
     const Mpix = getImageSurface(width, height);
@@ -66,23 +61,20 @@ class CpChooseImage extends Component {
   };
 
   render() {
-    let {imageViewUrl} = this.state;
-    let $imageView = null;
-    if (imageViewUrl && this.state.width > 0 && this.state.height > 0) {
-      $imageView = (<CpCanvas width={this.state.width} height={this.state.height} name={imageViewUrl}/>);
-    } else {
-      $imageView = (<div className='canvasHolder'>Please select an Image<br/>
+    const {imageViewUrl} = this.state;
+    const imageView = (imageViewUrl && this.state.width > 0 && this.state.height > 0) ?
+      (<CpCanvas width={this.state.width} height={this.state.height} name={imageViewUrl}/>) :
+      (<div className='canvasHolder'>Please select an Image<br/>
         <canvas width={1920} height={1080}/>
       </div>);
-    }
 
     return (
       <div className="ChooseImage">
-        <form onSubmit={(e) => this._handleSubmit(e)}>
+        <form>
           <input className="fileInput" type="file" onChange={(e) => this._handleImageChange(e)}/>
           {this.getInfoAboutPhoto()}
         </form>
-        {$imageView}
+        {imageView}
       </div>
     )
   }

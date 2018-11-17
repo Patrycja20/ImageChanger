@@ -70,7 +70,6 @@ export function changeFillMode() {
   };
 }
 
-
 /////Filters
 export function setImageURL(imageURL) {
   return {

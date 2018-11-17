@@ -18,9 +18,9 @@ export function iteratePixels(values, arrayPixels) {
     result = modifySaturation(result.r, result.g, result.b, values.saturation);
     result = modifyNumberOfShades(result.r, result.g, result.b, values.numberOfShades);
 
-    if(values.red === false) result.r = 0;
-    if(values.green === false) result.g = 0;
-    if(values.blue === false) result.b = 0;
+    if (values.red === false) result.r = 0;
+    if (values.green === false) result.g = 0;
+    if (values.blue === false) result.b = 0;
 
     arrayPixels[i] = result.r;
     arrayPixels[i + 1] = result.g;
@@ -32,7 +32,7 @@ export function modifyBrightness(r, g, b, value) {
   r = truncate(r + value);
   g = truncate(g + value);
   b = truncate(b + value);
-  return {r, g, b}
+  return {r, g, b};
 }
 
 export function modifyContrast(r, g, b, value) {
@@ -40,7 +40,7 @@ export function modifyContrast(r, g, b, value) {
   r = truncate(factor * (r - 128) + 128);
   g = truncate(factor * (g - 128) + 128);
   b = truncate(factor * (b - 128) + 128);
-  return {r, g, b}
+  return {r, g, b};
 }
 
 export function modifySaturation(r, g, b, value) {
@@ -63,17 +63,17 @@ export function modifyNumberOfShades(r, g, b, value) {
   r = truncate(gray);
   g = truncate(gray);
   b = truncate(gray);
-  return {r, g, b}
+  return {r, g, b};
 }
 
 export function modifyBlackAndWhite(r, g, b, value) {
   if (value === false) return {r, g, b};
 
-  const gray = (r * 0.2126 + g * 0.7152 + b * 0.0722)
+  const gray = (r * 0.2126 + g * 0.7152 + b * 0.0722);
   r = truncate(gray);
   g = truncate(gray);
   b = truncate(gray);
-  return {r, g, b}
+  return {r, g, b};
 }
 
 export function modifyInvertedColor(r, g, b, value) {
@@ -81,7 +81,7 @@ export function modifyInvertedColor(r, g, b, value) {
   r = 255 - r;
   g = 255 - g;
   b = 255 - b;
-  return {r, g, b}
+  return {r, g, b};
 }
 
 export function modifyVignetting(width, height, ctx, value) {

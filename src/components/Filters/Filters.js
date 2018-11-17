@@ -13,7 +13,6 @@ import { faAngleLeft } from '@fortawesome/free-solid-svg-icons'
 
 library.add(faAngleLeft);
 
-
 class Filters extends Component {
 
   handleImageChange = (e) => {

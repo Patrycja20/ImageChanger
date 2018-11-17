@@ -13,9 +13,9 @@ export class DrawingCanvas extends Component {
   ctxTemp = null;
 
   state = {
-    canvasSize: { width: 1000, height: 300, },
+    canvasSize: {width: 1000, height: 300,},
     mouseDown: false,
-    startPosition: { x: 0, y: 0 }, // pozycja startowa kursora
+    startPosition: {x: 0, y: 0}, // pozycja startowa kursora
   };
 
   paddings = { // paddingi od krawędzi ekranu
@@ -43,13 +43,13 @@ export class DrawingCanvas extends Component {
 
     helpers.clearCanvas(this.canvas);
 
-    const { paintSize, color } = this.props.drawing;
+    const {paintSize, color} = this.props.drawing;
     helpers.setDefaultContextValues(this.ctx, paintSize, color);
     helpers.setDefaultContextValues(this.ctxTemp, paintSize, color);
   }
 
   componentDidUpdate() {
-    const { paintSize, color } = this.props.drawing;
+    const {paintSize, color} = this.props.drawing;
 
     this.ctx.lineWidth = paintSize;
     this.ctx.strokeStyle = color;
@@ -75,30 +75,29 @@ export class DrawingCanvas extends Component {
   mouseMove = (e) => {
     if (this.state.mouseDown === false) return;
 
-    const { drawMode, isFill } = this.props.drawing;
+    const {drawMode, isFill} = this.props.drawing;
     const mousePosition = helpers.getRealCoords(this.refs.canvas, e);
     const startPosition = this.state.startPosition;
 
     this.ctxTemp.clearRect(0, 0, this.refs.canvasTemp.width, this.refs.canvasTemp.height);
 
-    switch (drawMode) {
-      case DRAW:
-        return helpers.draw(this.ctx, mousePosition);
-      case LINE:
-        return helpers.drawLine(this.ctxTemp, startPosition, mousePosition);
-      case RECTANGLE:
-        return helpers.drawRectangle(this.ctxTemp, startPosition, mousePosition, isFill);
-      case CIRCLE:
-        return helpers.drawCircle(this.ctxTemp, startPosition, mousePosition, isFill);
-      case TRIANGLE:
-        return helpers.drawTriangle(this.ctxTemp, startPosition, mousePosition, isFill);
+    if (drawMode === DRAW) {
+      return helpers.draw(this.ctx, mousePosition);
+    } else if (drawMode === LINE) {
+      return helpers.drawLine(this.ctxTemp, startPosition, mousePosition);
+    } else if (drawMode === RECTANGLE) {
+      return helpers.drawRectangle(this.ctxTemp, startPosition, mousePosition, isFill);
+    } else if (drawMode === CIRCLE) {
+      return helpers.drawCircle(this.ctxTemp, startPosition, mousePosition, isFill);
+    } else if (drawMode === TRIANGLE) {
+      return helpers.drawTriangle(this.ctxTemp, startPosition, mousePosition, isFill);
     }
   };
 
   mouseUp = () => {
-    this.setState({ mouseDown: false });
+    this.setState({mouseDown: false});
 
-    const { drawMode } = this.props.drawing;
+    const {drawMode} = this.props.drawing;
 
     if ([LINE, RECTANGLE, CIRCLE, TRIANGLE].includes(drawMode)) {
       this.ctx.drawImage(this.canvasTemp, 0, 0);
@@ -107,7 +106,7 @@ export class DrawingCanvas extends Component {
   };
 
   render() {
-    const { width, height } = this.state.canvasSize;
+    const {width, height} = this.state.canvasSize;
 
     return (
       <div className="DrawingCanvas row container-fluid ">

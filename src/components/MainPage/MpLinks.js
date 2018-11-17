@@ -1,9 +1,9 @@
 import React, { Component } from 'react';
 import { Link } from 'react-router-dom';
 import { Col, Row } from 'reactstrap';
-import './Links.css';
+import './MpLinks.css';
 
-class Links extends Component {
+class MpLinks extends Component {
   render() {
     return (
       <div className="Links">
@@ -29,4 +29,4 @@ class Links extends Component {
   }
 }
 
-export default Links;
+export default MpLinks;

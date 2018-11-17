@@ -1,8 +1,8 @@
 import React, { Component } from 'react';
 import { Row, Col } from 'reactstrap';
-import './HeaderFooter.css';
+import './MpHeaderFooter.css';
 
-class Header extends Component {
+class MpHeader extends Component {
   render() {
     return (
       <Row className="header">
@@ -14,4 +14,4 @@ class Header extends Component {
   }
 }
 
-export default Header;
+export default MpHeader;

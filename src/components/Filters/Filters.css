@@ -1,11 +1,11 @@
 .Filters .navbar {
-  background-color: #f9a811;
-  box-shadow: 0 1px 14px 0 rgba(249, 168, 17, 0.5);
-  position: relative;
-  display: flex;
-  flex-wrap: wrap;
-  align-items: center;
-  padding: .5rem 1rem;
+    background-color: #f9a811;
+    box-shadow: 0 1px 14px 0 rgba(249, 168, 17, 0.5);
+    position: relative;
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    padding: .5rem 1rem;
 }
 
 .ContentFilters {
@@ -20,8 +20,8 @@
 }
 
 .Filters .Brand {
-  border-right: 1px solid #e19711;
-  padding: 0 16px;
+    border-right: 1px solid #e19711;
+    padding: 0 16px;
 }
 
 .Filters .navbar-brand {
@@ -30,18 +30,17 @@
 }
 
 .Filters .Back .back-icon {
-  padding-right: 30px;
-  border-right: 1px solid #e19711;
+    padding-right: 30px;
+    border-right: 1px solid #e19711;
 }
 
-
 .Filters .Back .navbar-brand {
-  display: inline-block;
-  margin-right: 1rem;
-  font-size: 1.25rem;
-  line-height: inherit;
-  white-space: nowrap;
-  color: white;
+    display: inline-block;
+    margin-right: 1rem;
+    font-size: 1.25rem;
+    line-height: inherit;
+    white-space: nowrap;
+    color: white;
 }
 
 .Filters .Back:hover {

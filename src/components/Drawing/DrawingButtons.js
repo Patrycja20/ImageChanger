@@ -52,11 +52,11 @@ export class DrawingButtons extends Component {
   };
 
   saveAsJpg = () => {
-   canvasDownloadPopup(this.props.drawing.canvasRef);
+    canvasDownloadPopup(this.props.drawing.canvasRef);
   };
 
   render() {
-    const { drawMode, paintSize, color, isFill } = this.props.drawing;
+    const {drawMode, paintSize, color, isFill} = this.props.drawing;
 
     return (
       <div className='DrawingButtons navbar-coloring-buttons'>

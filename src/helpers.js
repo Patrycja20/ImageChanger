@@ -1,4 +1,3 @@
-
 /**
  * Tworzy plik jpg z canvasa i wyświetla okienko do jego pobrania jako jpg
  *

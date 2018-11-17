@@ -13,16 +13,16 @@ export const TRIANGLE = 'triangle';
 export const drawingReducer = (state = [], action) => {
   switch (action.type) {
     case SET_DRAW_MODE:
-      return { ...state, drawMode: action.drawMode };
+      return {...state, drawMode: action.drawMode};
     case SET_PAINT_SIZE:
-      return { ...state, paintSize: action.paintSize };
+      return {...state, paintSize: action.paintSize};
     case SET_COLOR:
-      return { ...state, color: action.color };
+      return {...state, color: action.color};
     case SET_CANVAS_REF:
-      return { ...state, canvasRef: action.reference };
+      return {...state, canvasRef: action.reference};
     case CHANGE_FILL_MODE:
-      return { ...state, isFill: !state.isFill };
+      return {...state, isFill: !state.isFill};
     default:
-      return state
+      return state;
   }
 };
