@@ -40,8 +40,8 @@ class Filters extends Component {
 
 
   render() {
-    const { imageURL } = this.props.filters;
-    const imageView = imageURL ? <Images/> : <div className="alert alert-dark">Please select an image</div>;
+    const {imageURL} = this.props.filters;
+    const imageView = imageURL ? <Images/> : <div className="alert alert-warning">Please select an image</div>;
 
     return (
       <div className='Filters'>

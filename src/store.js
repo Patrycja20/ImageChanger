@@ -6,7 +6,7 @@ export const initialStoreState = {
   drawing: {
     drawMode: DRAW,
     paintSize: 10,
-    color: '#6edb31',
+    color: '#00290d',
     canvasRef: null,
     isFill: false,
   },

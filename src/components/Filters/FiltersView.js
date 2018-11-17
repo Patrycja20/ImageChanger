@@ -57,7 +57,7 @@ class FiltersView extends Component {
             </Link>
           </div>
           <div className='mx-4'>
-            <button type="button" className="btn btn-secondary" onClick={this.saveAsJpg}>Save as *.jpg</button>
+            <button type="button" className="btn btn-save" onClick={this.saveAsJpg}>Save as *.jpg</button>
           </div>
         </nav>
         <div className="Photo justify-content-center">

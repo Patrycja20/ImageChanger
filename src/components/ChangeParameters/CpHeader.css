@@ -1,34 +1,34 @@
-.Header {
+.CpHeader {
     background-color: #672a96;
     box-shadow: 0 1px 14px 0 rgba(103, 42, 150, 0.5);
 }
 
-.Header h2 {
+.CpHeader h2 {
     color: #fafef0;
     font-size: 1.25rem;
 }
 
-.Header .Back:hover {
+.CpHeader .Back:hover {
     color: #cbb3fe;
     text-decoration: none;
 }
 
-.Header .back-icon {
+.CpHeader .back-icon {
     padding-right: 30px;
     border-right: 1px solid #8e37cb;
 }
 
-.Header .Brand {
+.CpHeader .Brand {
     border-right: 1px solid #8e37cb;
     padding-left: 16px;
 }
 
-.Header .navbar-brand {
+.CpHeader .navbar-brand {
     padding-left: 20px;
     color: white;
 }
 
-.Header .button-save {
+.CpHeader .button-save {
     padding-left: 20px;
 }
 
@@ -37,4 +37,7 @@
     color: #fafef0;
     text-decoration: none;
     height: 65px;
+}
+.CpHeader .btn-save{
+    color: #471d69;
 }

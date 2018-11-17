@@ -11,3 +11,7 @@
     max-height: 100%;
     max-width: 100%;
 }
+
+.Filters .btn-save {
+    color: #7e6f1d;
+}

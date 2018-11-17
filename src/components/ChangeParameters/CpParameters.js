@@ -154,8 +154,9 @@ class CpParameters extends Component {
       </Row>
       <hr/>
       < Row>
-        <Col md={4} xl={9}>Pixel's color
-          <div id="PixelColor" style={{width:"15px", height:"15px", border: "1px solid #471d69"}}></div>
+        <Col md={4} xl={9}>
+          /*Pixel's color
+         <div id="PixelColor" style={{width:"15px", height:"15px", border: "1px solid #471d69"}}></div>*/
         </Col>
         <Col md={4} xl={3}>
           <button className="btn btn-info btn-lg ClearParameters" type='reset'
