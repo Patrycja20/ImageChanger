@@ -76,57 +76,57 @@ class CpParameters extends Component {
         <Col md={4} xl={4}>
           <label className="CheckBox" onDoubleClick={() => this.props.setRed(true)}>r
           <input type="checkbox" id="red" disabled={!isLoaded} onChange={this.changeRed} checked={red}/>
-          <span className="Checkmark"></span>
+          <span className="Checkmark"> </span>
         </label></Col>
         <Col md={4} xl={4}>
           <label className="CheckBox" onDoubleClick={() => this.props.setGreen(true)}>g
           <input type="checkbox" id="blue" disabled={!isLoaded} onChange={this.changeGreen} checked={green}/>
-          <span className="Checkmark"></span>
+          <span className="Checkmark"> </span>
         </label></Col>
         <Col md={4} xl={4}>
           <label className="CheckBox" onDoubleClick={() => this.props.setBlue(true)}>b
           <input type="checkbox" id="green" disabled={!isLoaded} onChange={this.changeBlue} checked={blue}/>
-          <span className="Checkmark"></span>
+          <span className="Checkmark"> </span>
         </label></Col>
       </Row>
       <hr/>
       <Row>
         <Col>
-          <label for="Brightness" onDoubleClick={() => this.props.setBrightness(0)}>Brightness: {brightness}</label>
-          <input type="range" class="Range custom-range" min="-255" max="255" step="1" id="brightness"
+          <label htmlFor="Brightness" onDoubleClick={() => this.props.setBrightness(0)}>Brightness: {brightness}</label>
+          <input type="range" className="Range custom-range" min="-255" max="255" step="1" id="brightness"
                  value={brightness} disabled={!isLoaded}
-                 onInput={this.changeBrightness} onMouseDown={this.mouseDown} onMouseUp={this.mouseUp}/>
+                 onChange={this.changeBrightness} onMouseDown={this.mouseDown} onMouseUp={this.mouseUp}/>
         </Col>
       </Row>
       <Row>
         <Col>
-          <label for="Contrast" onDoubleClick={() => this.props.setContrast(0)}>Contrast: {contrast}</label>
-          <input type="range" class="Range custom-range" min="-255" max="255" step="1" id="contrast"
+          <label htmlFor="Contrast" onDoubleClick={() => this.props.setContrast(0)}>Contrast: {contrast}</label>
+          <input type="range" className="Range custom-range" min="-255" max="255" step="1" id="contrast"
                  value={contrast} disabled={!isLoaded}
                  onChange={this.changeContrast} onMouseDown={this.mouseDown} onMouseUp={this.mouseUp}/>
         </Col>
       </Row>
       <Row>
         <Col>
-          <label for="Saturation" onDoubleClick={() => this.props.setSaturation(1.0)}>Saturation: {saturation}</label>
-          <input type="range" class="Range custom-range" min="0" max="2" step="0.01" id="saturation"
+          <label htmlFor="Saturation" onDoubleClick={() => this.props.setSaturation(1.0)}>Saturation: {saturation}</label>
+          <input type="range" className="Range custom-range" min="0" max="2" step="0.01" id="saturation"
                  value={saturation} disabled={!isLoaded}
                  onChange={this.changeSaturation} onMouseDown={this.mouseDown} onMouseUp={this.mouseUp}/>
         </Col>
       </Row>
       <Row>
         <Col>
-          <label for="Vignetting" onDoubleClick={() => this.props.setVignetting(0)}>Vignetting: {vignetting}</label>
-          <input type="range" class="Range custom-range" min="0" max="1" step="0.01" id="vignetting"
+          <label htmlFor="Vignetting" onDoubleClick={() => this.props.setVignetting(0)}>Vignetting: {vignetting}</label>
+          <input type="range" className="Range custom-range" min="0" max="1" step="0.01" id="vignetting"
                  value={vignetting} disabled={!isLoaded}
                  onChange={this.changeVignetting} onMouseDown={this.mouseDown} onMouseUp={this.mouseUp}/>
         </Col>
       </Row>
       <Row>
         <Col>
-          <label for="Number Of Shades" onDoubleClick={() => this.props.setNumberOfShades(0)}>Number Of
+          <label htmlFor="Number Of Shades" onDoubleClick={() => this.props.setNumberOfShades(0)}>Number Of
             Shades: {numberOfShades}</label>
-          <input type="range" class="Range custom-range" min="0" max="16" step="1" id="numberOfShades"
+          <input type="range" className="Range custom-range" min="0" max="16" step="1" id="numberOfShades"
                  value={numberOfShades} disabled={!isLoaded}
                  onChange={this.changeNumberOfShades} onMouseDown={this.mouseDown} onMouseUp={this.mouseUp}/>
         </Col>
@@ -138,7 +138,7 @@ class CpParameters extends Component {
             Black and White
             <input type="checkbox" id="blackAndWhite" disabled={!isLoaded} checked={blackAndWhite}
                    onChange={this.changeBlackAndWhite}/>
-            <span className="Checkmark"></span>
+            <span className="Checkmark"> </span>
           </label>
         </Col>
       </Row>
@@ -148,7 +148,7 @@ class CpParameters extends Component {
             Inverted Color
             <input type="checkbox" id="invertedColor" disabled={!isLoaded} checked={invertedColor}
                    onChange={this.changeInvertedColor}/>
-            <span className="Checkmark"></span>
+            <span className="Checkmark"> </span>
           </label>
         </Col>
       </Row>
