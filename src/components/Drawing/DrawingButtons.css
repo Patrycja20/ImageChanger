@@ -128,3 +128,7 @@
     background: #00290d;
     cursor: pointer;
 }
+
+.DrawingButtons input[type=range]::-moz-range-track {
+    background: #bcc0bc;
+}
