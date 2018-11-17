@@ -7,7 +7,7 @@ import {
 import { connect } from 'react-redux';
 import { setCanvasReference } from '../../actions';
 
-const SCROLL_WIDTH = 18;
+const SCROLL_WIDTH = 21;
 
 class CpCanvas extends Component {
 
