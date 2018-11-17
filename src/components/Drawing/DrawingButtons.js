@@ -71,16 +71,16 @@ export class DrawingButtons extends Component {
               value={paintSize} onChange={this.changePaintSize}
               title='Choose color'
             />
-            <span className="badge badge-succes paint-size-val">{paintSize}px</span>
+            <span className="badge badge-success paint-size-val">{paintSize}px</span>
           </li>
 
           <li className="nav-item">
-            <input type="color" className="btn btn-succes paint-color" value={color} onChange={this.changeColor}/>
+            <input type="color" className="btn paint-color" value={color} onChange={this.changeColor}/>
           </li>
 
           <li className="nav-item">
             <button
-              className='btn btn-succes buttons-color'
+              className='btn buttons-color'
               type="button"
               onClick={this.changeFillMode}
               title='Fill or stroke mode'
@@ -93,7 +93,7 @@ export class DrawingButtons extends Component {
             </button>
 
             <button
-              className='btn btn-succes mx-2 buttons-color'
+              className='btn mx-2 buttons-color'
               type="button"
               onClick={this.clearCanvas}
               title='Clear canvas'
@@ -105,7 +105,7 @@ export class DrawingButtons extends Component {
           <li className="nav-item">
             <button
               data-mode={DRAW}
-              className={`btn btn-succes button-mode ${drawMode === DRAW && 'selected'}`}
+              className={`btn button-mode ${drawMode === DRAW && 'selected'}`}
               type="button"
               onClick={() => this.changeDrawMode(DRAW)}
               title='Draw'
@@ -115,7 +115,7 @@ export class DrawingButtons extends Component {
 
             <button
               data-mode={LINE}
-              className={`btn btn-succes button-mode ${drawMode === LINE && 'selected'}`}
+              className={`btn button-mode ${drawMode === LINE && 'selected'}`}
               type="button"
               onClick={() => this.changeDrawMode(LINE)}
               title='Draw line'
@@ -125,7 +125,7 @@ export class DrawingButtons extends Component {
 
             <button
               data-mode={RECTANGLE}
-              className={`btn btn-succes button-mode button-square ${drawMode === RECTANGLE && 'selected'}`}
+              className={`btn button-mode button-square ${drawMode === RECTANGLE && 'selected'}`}
               type="button"
               onClick={() => this.changeDrawMode(RECTANGLE)}
               title='Draw rectangle'
@@ -135,7 +135,7 @@ export class DrawingButtons extends Component {
 
             <button
               data-mode={RECTANGLE}
-              className={`btn btn-succes button-mode button-square ${drawMode === CIRCLE && 'selected'}`}
+              className={`btn button-mode button-square ${drawMode === CIRCLE && 'selected'}`}
               type="button"
               onClick={() => this.changeDrawMode(CIRCLE)}
               title='Draw circle'
@@ -145,7 +145,7 @@ export class DrawingButtons extends Component {
 
             <button
               data-mode={RECTANGLE}
-              className={`btn btn-succes button-mode button-square ${drawMode === TRIANGLE && 'selected'}`}
+              className={`btn button-mode button-square ${drawMode === TRIANGLE && 'selected'}`}
               type="button"
               onClick={() => this.changeDrawMode(TRIANGLE)}
               title='Draw triangle'
@@ -155,7 +155,7 @@ export class DrawingButtons extends Component {
           </li>
 
           <li className='nav-item button-save'>
-            <button type="button" className="btn btn-succes buttons-color" onClick={this.saveAsJpg}>Save as *.jpg</button>
+            <button type="button" className="btn buttons-color" onClick={this.saveAsJpg}>Save as *.jpg</button>
           </li>
 
         </ul>
