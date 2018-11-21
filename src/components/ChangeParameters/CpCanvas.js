@@ -6,8 +6,7 @@ import {
 } from './cpModifiers';
 import { connect } from 'react-redux';
 import { setCanvasReference } from '../../actions';
-
-const SCROLL_WIDTH = 21;
+import { getDivDimensions } from './cpHelpers';
 
 class CpCanvas extends Component {
 
@@ -39,23 +38,37 @@ class CpCanvas extends Component {
   componentDidUpdate() {
     if (this.props.parameters.ableToChange === false) return;
 
-    this.ctx.clearRect(0, 0, this.props.width, this.props.height);
+    const {
+      imageSize: { width: imageWidth, height: imageHeight },
+      parameters,
+    } = this.props;
+
+    this.ctx.clearRect(0, 0, imageWidth, imageHeight);
     this.ctx.drawImage(this.refs.image, 0, 0);
-    if (this.props.parameters.vignetting !== 0) {
-      this.ctx.fillStyle = modifyVignetting(this.props.width, this.props.height, this.ctx, this.props.parameters.vignetting);
-      this.ctx.fillRect(0, 0, this.props.width, this.props.height);
+    if (parameters.vignetting !== 0) {
+      this.ctx.fillStyle = modifyVignetting(imageWidth, imageHeight, this.ctx, parameters.vignetting);
+      this.ctx.fillRect(0, 0, imageWidth, imageHeight);
     }
-    const imgData = this.ctx.getImageData(0, 0, this.props.width, this.props.height);
-    iteratePixels(this.props.parameters, imgData.data);
+    const imgData = this.ctx.getImageData(0, 0, imageWidth, imageHeight);
+    iteratePixels(parameters, imgData.data);
 
     this.ctx.putImageData(imgData, 0, 0);
   }
 
   render() {
+    const {
+      imageSize: { width: imageWidth, height: imageHeight },
+      imageSize,
+      containerSize,
+      name
+    } = this.props;
+
+    const {divWidth, divHeight} = getDivDimensions(imageSize, containerSize);
+
     return (
-      <div className="CpCanvas" style={{maxWidth: this.props.width + SCROLL_WIDTH}}>
-        <canvas ref="canvas" width={this.props.width} height={this.props.height}/>
-        <img ref="image" src={this.props.name} alt="" className="hidden"/>
+      <div className="CpCanvas" style={{ maxWidth: divWidth, maxHeight: divHeight}}>
+        <canvas ref="canvas" width={imageWidth} height={imageHeight}/>
+        <img ref="image" src={name} alt="" className="hidden"/>
       </div>
     )
   }

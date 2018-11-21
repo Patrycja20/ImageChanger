@@ -23,6 +23,11 @@ class Filters extends Component {
     this.getImageSize(file);
 
     reader.onloadend = () => {
+      if (file.type.search('image') < 0) {
+        alert(`Wrong file type! (${file.type}) Try again with correct image file.`);
+        return;
+      }
+
       this.props.setImageURL(reader.result);
     };
     reader.readAsDataURL(file);

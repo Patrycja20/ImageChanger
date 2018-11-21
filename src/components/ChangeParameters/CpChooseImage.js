@@ -3,31 +3,45 @@ import CpCanvas from './CpCanvas';
 import './CpChooseImage.css';
 import { resetParameters, setIsLoaded } from '../../actions';
 import { connect } from 'react-redux';
-import { getImageSurface, isPhotoTooBig } from './cpHelpers';
+import { calcWindowSize, getImageSurface, isPhotoTooBig } from './cpHelpers';
 
 class CpChooseImage extends Component {
-  constructor(props) {
-    super(props);
-    this.state = {file: '', imageViewUrl: '', height: null, width: null};
-  }
+
+  state = {
+    file: '',
+    imageViewUrl: '',
+    imageSize: { height: null, width: null },
+    containerSize: { height: null, width: null },
+  };
 
   getImageSize = (file) => {
     this.setState({
-      width: null,
-      height: null
+      imageSize: {
+        width: null,
+        height: null
+      }
     });
     const url = URL.createObjectURL(file);
     const image = new Image();
 
     image.onload = () => {
-      const {width, height} = image;
+      const { width, height } = image;
       this.setState({
-        width: width,
-        height: height
+        imageSize: {
+          width: width,
+          height: height
+        }
       });
+      this.updateContainerDimensions();
     };
 
     image.src = url;
+  };
+
+  updateContainerDimensions = () => {
+    this.setState({
+      containerSize: calcWindowSize(window),
+    });
   };
 
   _handleImageChange(e) {
@@ -39,6 +53,11 @@ class CpChooseImage extends Component {
     this.getImageSize(file);
 
     reader.onloadend = () => {
+      if (file.type.search('image') < 0) {
+        alert(`Wrong file type! (${file.type}) Try again with correct image file.`);
+        return;
+      }
+
       this.props.setIsLoaded(true);
       this.setState({
         file: file,
@@ -49,7 +68,7 @@ class CpChooseImage extends Component {
   }
 
   getInfoAboutPhoto = () => {
-    const {width, height} = this.state;
+    const {width, height} = this.state.imageSize;
     if ((width > 0 && height > 0) === false) return 'Module preffers max. 5 Mpix photo';
 
     const Mpix = getImageSurface(width, height);
@@ -61,9 +80,9 @@ class CpChooseImage extends Component {
   };
 
   render() {
-    const {imageViewUrl} = this.state;
-    const imageView = (imageViewUrl && this.state.width > 0 && this.state.height > 0) ?
-      (<CpCanvas width={this.state.width} height={this.state.height} name={imageViewUrl}/>) :
+    const {imageViewUrl, imageSize, containerSize} = this.state;
+    const imageView = (imageViewUrl && imageSize.width > 0 && imageSize.height > 0) ?
+      (<CpCanvas imageSize={imageSize} containerSize={containerSize} name={imageViewUrl}/>) :
       (<div className='canvasHolder'>Please select an Image<br/>
         <canvas width={1920} height={1080}/>
       </div>);

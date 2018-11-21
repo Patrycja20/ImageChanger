@@ -28,8 +28,14 @@ Do instalacji i uruchomienia aplikacji z kodu źródłowego potrzebujemy _Node.j
 Do testowania modułów Change Parameters i Filters polecamy używać zdjęć z katalogu `/preview_images/`.
 
 
+## Użyte technologie:
+- *React i Redux* – obie biblioteki znacząco ułatwiają budowanie aplikacji, które reagują na działania użytkownika. Dzięki zastosowaniu Reduxa, w projekcie mamy jedno źródło prawdy, którym jest `store`. Każdy komponent z niego czerpie  potrzebne mu informacje.
+- *Canvas HTML5* – do rysowania i przetwarzania obrazków został użyty Canvas. Umożliwia on wczytanie obrazka, iterowanie i zamianę jego pikseli. Dodatkowo można rysować na nim linie i kształty geometryczne.
+- *Bootstrap (i własne style CSS)* – dzięki temu aplikacja wygląda ładnie i jest responsywna.
+
 ___________________________________________
 
+# Opis modułów
 
 ## Change Parameters
 
@@ -203,3 +209,12 @@ Rysowanie kształtów jest trochę bardziej skomplikowane. Na ich potrzeby zosta
 Algorytmy rysowania kształtów można znaleźć w pliku `drawingHelpers.js`. Rysowanie każdego kształtu jest w odpowiedniej metodzie, a za jej wywołanie odpowiada `switch`.
 
 _Reduxowe_ akcje znajdziemy w pliku `src/actions/index.js`. Stałe oraz `reducer` obsługujący te akcje znajdziemy w pliku `src/reducers/drawingReducer.js`.
+
+# Wykorzystane materiały
+
+ - Skala szarości - www.tannerhelland.com/3643/grayscale-image-algorithm-vb6/
+ - Filtry Canvasa - https://developer.mozilla.org/en-US/docs/Web/API/CanvasRenderingContext2D/filter
+ - Manipulacja pikselami - https://developer.mozilla.org/en-US/docs/Web/API/Canvas_API/Tutorial/Pixel_manipulation_with_canvas
+ - Kontrast - http://thecryptmag.com/Online/56/imgproc_5.html
+ - Saturacja - http://alienryderflex.com/saturation.html
+ 
